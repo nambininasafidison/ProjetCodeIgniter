@@ -1,0 +1,4 @@
+apt install git
+mkdir git
+git clone 'url http'
+cp /path/
