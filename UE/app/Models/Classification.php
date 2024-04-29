@@ -64,26 +64,23 @@ class Classification extends Model
 			$condition["UE.nomUe"]=$ue["nomUe"];
 			$data[$i][]=$ue["id_ue"];
 			$data[$i][]=$ue["nomUe"];
-			$data[$i][] = $this	->select('Classification.id,QUE.nomQUE,Classification.heure,Classification.credit,Professeur.prof')
-										->join('Niveau','Classification.niveau = Niveau.id','inner')
-										->join('Semestre','Classification.semestre = Semestre.id','inner')
-										->join('Professeur','Classification.prof = Professeur.id','inner')
-										->join('UE','Classification.ue = UE.id','inner')
-										->join('QUE','Classification.que = QUE.id','inner')
-										->distinct()
-										->where($condition)
-										->like($like[0]);		
-			$i++;	
-		}
+			$this	->	select('Classification.id,QUE.nomQUE,Classification.heure,Classification.credit,Professeur.nomProf')
+					->	join('Niveau','Classification.niveau = Niveau.id','inner')
+					->	join('Semestre','Classification.semestre = Semestre.id','inner')
+					->	join('Professeur','Classification.prof = Professeur.id','inner')
+					->	join('UE','Classification.ue = UE.id','inner')
+					->	join('QUE','Classification.que = QUE.id','inner')
+					->	distinct();
+			$this	->	groupStart()
+					->	like($like[0]);			
 			foreach($like as $lk){
 				$this->orLike($lk);
 			}
-			$data[$ue]=$this->findAll();			
-
-			foreach($like as $lk){
-				$this->orLike($lk);
-			}
-			$data[$ue]=$this->findAll();			
+			$this->groupEnd();
+			$data[$i][]= $this	->	where($condition)
+								->	findAll();
+			$i++;
+		}			
 		return $data;
 	}
 }

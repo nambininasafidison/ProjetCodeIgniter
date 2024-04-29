@@ -1,0 +1,2474 @@
+ERROR - 2024-04-28 13:38:28 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:186
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'gestionUe', 3306, '', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(30): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(51): App\Models\Classification->divide(Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->filter()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#3 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /opt/lampp/htdocs/UE/app/Models/Classification.php(30): CodeIgniter\BaseModel->findAll()
+#6 /opt/lampp/htdocs/UE/app/Controllers/Back.php(51): App\Models\Classification->divide(Array)
+#7 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->filter()
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-04-28 13:38:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: POST, Route: Back/filter]
+in SYSTEMPATH/Database/BaseConnection.php on line 457.
+ 1 SYSTEMPATH/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `UE`.`nomUe`, `UE`.`id` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:', [...], false)
+ 3 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Models/Classification.php(30): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH/Controllers/Back.php(51): App\Models\Classification->divide([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 13:50:28 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'gestionUe' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:186
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'gestionUe', 3306, '', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT IGNORE I...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/UE/system/Model.php(791): CodeIgniter\BaseModel->insert(Array, true)
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(235): CodeIgniter\Model->insert(Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'gestionUe' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT IGNORE I...', Array, false)
+#3 /opt/lampp/htdocs/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#4 /opt/lampp/htdocs/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#5 /opt/lampp/htdocs/UE/system/Model.php(791): CodeIgniter\BaseModel->insert(Array, true)
+#6 /opt/lampp/htdocs/UE/app/Controllers/Back.php(235): CodeIgniter\Model->insert(Array)
+#7 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-04-28 13:50:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'gestionUe'
+[Method: POST, Route: Back/insert]
+in SYSTEMPATH/Database/BaseConnection.php on line 457.
+ 1 SYSTEMPATH/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT IGNORE INTO `UE` (`nomUe`) VALUES (:nomUe:)', [...], false)
+ 3 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 6 APPPATH/Controllers/Back.php(235): CodeIgniter\Model->insert([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->insert()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 13:53:09 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`gestionUe`.`Classification`, CONSTRAINT `Classification_ibfk_1` FOREIGN KEY (`niveau`) REFERENCES `Niveau` (`id`)) in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `Cl...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Cl...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Cl...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Cl...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/UE/system/Model.php(791): CodeIgniter\BaseModel->insert(Array, true)
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(266): CodeIgniter\Model->insert(Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 13:53:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`gestionUe`.`Classification`, CONSTRAINT `Classification_ibfk_1` FOREIGN KEY (`niveau`) REFERENCES `Niveau` (`id`))
+[Method: POST, Route: Back/insert]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (:niveau:, :semestre:, :heure:, :credit:, :que:, :prof:, :ue:)', [...], false)
+ 2 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH/Controllers/Back.php(266): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->insert()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 13:53:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`gestionUe`.`Classification`, CONSTRAINT `Classification_ibfk_1` FOREIGN KEY (`niveau`) REFERENCES `Niveau` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'1\', \'1\', (\'60\'), (\'60\'), \'1\', \'1\', \'1\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'1\', \'1\', (\'60\'), (\'60\'), \'1\', \'1\', \'1\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (:niveau:, :semestre:, :heure:, :credit:, :que:, :prof:, :ue:)', [...], false)
+ 4 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH/Controllers/Back.php(266): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->insert()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 13:53:09 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`gestionUe`.`Classification`, CONSTRAINT `Classification_ibfk_1` FOREIGN KEY (`niveau`) REFERENCES `Niveau` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'1\', \'1\', (\'60\'), (\'60\'), \'1\', \'1\', \'1\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'1\', \'1\', (\'60\'), (\'60\'), \'1\', \'1\', \'1\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'1\', \'1\', (\'60\'), (\'60\'), \'1\', \'1\', \'1\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (:niveau:, :semestre:, :heure:, :credit:, :que:, :prof:, :ue:)', [...], false)
+ 5 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/Back.php(266): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->insert()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 13:54:23 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`gestionUe`.`Classification`, CONSTRAINT `Classification_ibfk_1` FOREIGN KEY (`niveau`) REFERENCES `Niveau` (`id`)) in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `Cl...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Cl...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Cl...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Cl...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/UE/system/Model.php(791): CodeIgniter\BaseModel->insert(Array, true)
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(266): CodeIgniter\Model->insert(Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 13:54:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`gestionUe`.`Classification`, CONSTRAINT `Classification_ibfk_1` FOREIGN KEY (`niveau`) REFERENCES `Niveau` (`id`))
+[Method: POST, Route: Back/insert]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (:niveau:, :semestre:, :heure:, :credit:, :que:, :prof:, :ue:)', [...], false)
+ 2 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH/Controllers/Back.php(266): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->insert()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 13:54:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`gestionUe`.`Classification`, CONSTRAINT `Classification_ibfk_1` FOREIGN KEY (`niveau`) REFERENCES `Niveau` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'2\', \'3\', (\'60\'), (\'60\'), \'1\', \'1\', \'2\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'2\', \'3\', (\'60\'), (\'60\'), \'1\', \'1\', \'2\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (:niveau:, :semestre:, :heure:, :credit:, :que:, :prof:, :ue:)', [...], false)
+ 4 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH/Controllers/Back.php(266): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->insert()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 13:54:23 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`gestionUe`.`Classification`, CONSTRAINT `Classification_ibfk_1` FOREIGN KEY (`niveau`) REFERENCES `Niveau` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'2\', \'3\', (\'60\'), (\'60\'), \'1\', \'1\', \'2\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'2\', \'3\', (\'60\'), (\'60\'), \'1\', \'1\', \'2\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (\'2\', \'3\', (\'60\'), (\'60\'), \'1\', \'1\', \'2\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Classification` (`niveau`, `semestre`, `heure`, `credit`, `que`, `prof`, `ue`) VALUES (:niveau:, :semestre:, :heure:, :credit:, :que:, :prof:, :ue:)', [...], false)
+ 5 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/Back.php(266): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->insert()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:25:40 --> ErrorException: Undefined variable $ue
+[Method: POST, Route: Back/update_que/4]
+in APPPATH/Controllers/Back.php on line 314.
+ 1 APPPATH/Controllers/Back.php(314): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ue', '/opt/lampp/htdocs/UE/app/Controllers/Back.php', 314)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->update_que('4')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:47:35 --> mysqli_sql_exception: Unknown column 'Niveau.nomMiveau' in 'where clause' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT `Classif...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Classif...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Classif...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classif...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Controllers/Back.php(108): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->form_search()
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-04-28 14:47:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Niveau.nomMiveau' in 'where clause'
+[Method: GET, Route: Back/form_search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomMiveau` LIKE :Niveau.nomMiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/Back.php(108): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:47:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Niveau.nomMiveau' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nomMiveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nomMiveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomMiveau` LIKE :Niveau.nomMiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Controllers/Back.php(108): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:47:35 --> [Caused by] mysqli_sql_exception: Unknown column 'Niveau.nomMiveau' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nomMiveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nomMiveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nomMiveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomMiveau` LIKE :Niveau.nomMiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Controllers/Back.php(108): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:49:10 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`Niveau` LIKE '%Analyse%' ESCAPE '!'
+OR  `Semestre`.`nomSemestre` LIKE '%Anal...' at line 13 in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT `Classif...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Classif...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Classif...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classif...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Controllers/Back.php(108): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->form_search()
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-04-28 14:49:10 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`Niveau` LIKE '%Analyse%' ESCAPE '!'
+OR  `Semestre`.`nomSemestre` LIKE '%Anal...' at line 13
+[Method: GET, Route: Back/form_search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nom` `Niveau` LIKE :Niveau.nom	Niveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/Back.php(108): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:49:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`Niveau` LIKE '%Analyse%' ESCAPE '!'
+OR  `Semestre`.`nomSemestre` LIKE '%Anal...' at line 13
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nom` `Niveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nom` `Niveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nom` `Niveau` LIKE :Niveau.nom	Niveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Controllers/Back.php(108): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:49:10 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`Niveau` LIKE '%Analyse%' ESCAPE '!'
+OR  `Semestre`.`nomSemestre` LIKE '%Anal...' at line 13
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nom` `Niveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nom` `Niveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Niveau`.`nom` `Niveau` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%Analyse%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%Analyse%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nom` `Niveau` LIKE :Niveau.nom	Niveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Controllers/Back.php(108): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:50:42 --> mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(130): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 14:50:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+[Method: POST, Route: Back/search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:50:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:50:42 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:50:46 --> mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(130): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 14:50:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+[Method: POST, Route: Back/search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:50:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:50:46 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:51:01 --> mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(130): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 14:51:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+[Method: POST, Route: Back/search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:51:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:51:01 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:51:04 --> mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(130): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 14:51:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+[Method: POST, Route: Back/search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:51:04 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:51:04 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:51:57 --> mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(130): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 14:51:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+[Method: POST, Route: Back/search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:51:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:51:57 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.nomProf' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Classification`
+WHERE `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:56:20 --> mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(130): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 14:56:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+[Method: POST, Route: Back/search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:56:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:56:20 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(130): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:57:06 --> mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(124): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->form_search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 14:57:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+[Method: GET, Route: Back/form_search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:57:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:57:06 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 14:57:43 --> mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(124): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->form_search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 14:57:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+[Method: GET, Route: Back/form_search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:57:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 14:57:43 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 15:00:50 --> mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(124): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->form_search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 15:00:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+[Method: GET, Route: Back/form_search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:00:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:00:50 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-04-28 15:00:51 --> mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list' in /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /opt/lampp/htdocs/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /opt/lampp/htdocs/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /opt/lampp/htdocs/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /opt/lampp/htdocs/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /opt/lampp/htdocs/UE/app/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/UE/app/Controllers/Back.php(124): App\Models\Classification->divideWhere(Array, Array)
+#8 /opt/lampp/htdocs/UE/system/CodeIgniter.php(933): App\Controllers\Back->form_search()
+#9 /opt/lampp/htdocs/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /opt/lampp/htdocs/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-04-28 15:00:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+[Method: GET, Route: Back/form_search]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:00:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:00:51 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.prof' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Programmation\'
+AND  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`id` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE \'%PHP%\' ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE \'%PHP%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `QUE`.`nomQUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`prof`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `QUE` ON `Classification`.`que` = `QUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:
+AND  `Classification`.`id` LIKE :Classification.id: ESCAPE \'!\'
+OR  `Classification`.`id` LIKE :Classification.id.1: ESCAPE \'!\'
+OR  `Classification`.`heure` LIKE :Classification.heure: ESCAPE \'!\'
+OR  `Classification`.`credit` LIKE :Classification.credit: ESCAPE \'!\'
+OR  `Professeur`.`nomProf` LIKE :Professeur.nomProf: ESCAPE \'!\'
+OR  `Niveau`.`nomNiveau` LIKE :Niveau.nomNiveau: ESCAPE \'!\'
+OR  `Semestre`.`nomSemestre` LIKE :Semestre.nomSemestre: ESCAPE \'!\'
+OR  `UE`.`nomUe` LIKE :UE.nomUe.1: ESCAPE \'!\'
+OR  `QUE`.`nomQUE` LIKE :QUE.nomQUE: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(81): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:01:26 --> TypeError: Illegal offset type
+[Method: GET, Route: Back/form_search]
+in APPPATH/Models/Classification.php on line 81.
+ 1 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:02:11 --> TypeError: Illegal offset type
+[Method: GET, Route: Back/form_search]
+in APPPATH/Models/Classification.php on line 81.
+ 1 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:02:13 --> TypeError: Illegal offset type
+[Method: GET, Route: Back/form_search]
+in APPPATH/Models/Classification.php on line 81.
+ 1 APPPATH/Controllers/Back.php(124): App\Models\Classification->divideWhere([...], [...])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:13:55 --> ErrorException: Undefined variable $data
+[Method: GET, Route: Back/form_search]
+in APPPATH/Controllers/Back.php on line 112.
+ 1 APPPATH/Controllers/Back.php(112): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', '/opt/lampp/htdocs/UE/app/Controllers/Back.php', 112)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:27:35 --> ArgumentCountError: Too few arguments to function App\Controllers\Back::search(), 0 passed in /opt/lampp/htdocs/UE/system/CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: Back/search]
+in APPPATH/Controllers/Back.php on line 116.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:27:36 --> ArgumentCountError: Too few arguments to function App\Controllers\Back::search(), 0 passed in /opt/lampp/htdocs/UE/system/CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: Back/search]
+in APPPATH/Controllers/Back.php on line 116.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:27:37 --> ArgumentCountError: Too few arguments to function App\Controllers\Back::search(), 0 passed in /opt/lampp/htdocs/UE/system/CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: Back/search]
+in APPPATH/Controllers/Back.php on line 116.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:27:39 --> ArgumentCountError: Too few arguments to function App\Controllers\Back::search(), 0 passed in /opt/lampp/htdocs/UE/system/CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: Back/search]
+in APPPATH/Controllers/Back.php on line 116.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:27:43 --> ArgumentCountError: Too few arguments to function App\Controllers\Back::search(), 0 passed in /opt/lampp/htdocs/UE/system/CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: Back/search]
+in APPPATH/Controllers/Back.php on line 116.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 15:27:49 --> ArgumentCountError: Too few arguments to function App\Controllers\Back::search(), 0 passed in /opt/lampp/htdocs/UE/system/CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: Back/search]
+in APPPATH/Controllers/Back.php on line 116.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->search()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 18:24:38 --> ErrorException: Undefined variable $to_search
+[Method: GET, Route: Back/form_search]
+in APPPATH/Controllers/Back.php on line 103.
+ 1 APPPATH/Controllers/Back.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $to_search', '/opt/lampp/htdocs/UE/app/Controllers/Back.php', 103)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 18:25:08 --> ErrorException: Undefined variable $to_search
+[Method: GET, Route: Back/form_search]
+in APPPATH/Views/filter.php on line 414.
+ 1 APPPATH/Views/filter.php(414): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $to_search', '/opt/lampp/htdocs/UE/app/Views/filter.php', 414)
+ 2 SYSTEMPATH/View/View.php(234): include('/opt/lampp/htdocs/UE/app/Views/filter.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('filter', [], true)
+ 5 APPPATH/Controllers/Back.php(146): view('filter', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 18:30:22 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Result::where()
+[Method: GET, Route: Back/form_search]
+in APPPATH/Models/Classification.php on line 79.
+ 1 APPPATH/Controllers/Back.php(113): App\Models\Classification->divideWhere([...], [...])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 18:33:07 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Result::findAll()
+[Method: GET, Route: Back/form_search]
+in APPPATH/Models/Classification.php on line 80.
+ 1 APPPATH/Controllers/Back.php(113): App\Models\Classification->divideWhere([...], [...])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 18:33:08 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Result::findAll()
+[Method: GET, Route: Back/form_search]
+in APPPATH/Models/Classification.php on line 80.
+ 1 APPPATH/Controllers/Back.php(113): App\Models\Classification->divideWhere([...], [...])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 18:40:17 --> ParseError: syntax error, unexpected token "foreach"
+[Method: GET, Route: Back/form_search]
+in APPPATH/Models/Classification.php on line 75.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/UE/app/Models/Classification.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Classification')
+ 3 APPPATH/Controllers/Back.php(107): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Classification')
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-04-28 18:40:19 --> ParseError: syntax error, unexpected token "foreach"
+[Method: GET, Route: Back/form_search]
+in APPPATH/Models/Classification.php on line 75.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/UE/app/Models/Classification.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Classification')
+ 3 APPPATH/Controllers/Back.php(107): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Classification')
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_search()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
