@@ -11,10 +11,12 @@ class Classification extends Model
 		'niveau',
 		'semestre',
 		'ue',
-		'que',
+		'ecue',
 		'heure',
 		'credit',
-		'prof'
+		'prof',
+		'enseignement',
+		'groupe'
 	];
 
 	public function divide($condition){
@@ -24,7 +26,7 @@ class Classification extends Model
 										->join('Semestre','Classification.semestre = Semestre.id','inner')
 										->join('Professeur','Classification.prof = Professeur.id','inner')
 										->join('UE','Classification.ue = UE.id','inner')
-										->join('QUE','Classification.que = QUE.id','inner')
+										->join('ECUE','Classification.ecue = ECUE.id','inner')
 										->distinct()
 										->where($condition)
 										->findAll();
@@ -33,12 +35,12 @@ class Classification extends Model
 			$condition["UE.nomUe"]=$ue["nomUe"];
 			$data[$i][]=$ue["id_ue"];
 			$data[$i][]=$ue["nomUe"];
-			$data[$i][] = $this	->select('Classification.id,QUE.nomQUE,Classification.heure,Classification.credit,Professeur.nomProf')
+			$data[$i][] = $this	->select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf')
 										->join('Niveau','Classification.niveau = Niveau.id','inner')
 										->join('Semestre','Classification.semestre = Semestre.id','inner')
 										->join('Professeur','Classification.prof = Professeur.id','inner')
 										->join('UE','Classification.ue = UE.id','inner')
-										->join('QUE','Classification.que = QUE.id','inner')
+										->join('ECUE','Classification.ecue = ECUE.id','inner')
 										->distinct()
 										->where($condition)
 										->findAll();					
@@ -55,7 +57,7 @@ class Classification extends Model
 										->join('Semestre','Classification.semestre = Semestre.id','inner')
 										->join('Professeur','Classification.prof = Professeur.id','inner')
 										->join('UE','Classification.ue = UE.id','inner')
-										->join('QUE','Classification.que = QUE.id','inner')
+										->join('ECUE','Classification.ecue = ECUE.id','inner')
 										->distinct()
 										->where($condition)
 										->findAll();
@@ -64,12 +66,12 @@ class Classification extends Model
 			$condition["UE.nomUe"]=$ue["nomUe"];
 			$data[$i][]=$ue["id_ue"];
 			$data[$i][]=$ue["nomUe"];
-			$this	->	select('Classification.id,QUE.nomQUE,Classification.heure,Classification.credit,Professeur.nomProf')
+			$this	->	select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf')
 					->	join('Niveau','Classification.niveau = Niveau.id','inner')
 					->	join('Semestre','Classification.semestre = Semestre.id','inner')
 					->	join('Professeur','Classification.prof = Professeur.id','inner')
 					->	join('UE','Classification.ue = UE.id','inner')
-					->	join('QUE','Classification.que = QUE.id','inner')
+					->	join('ECUE','Classification.ecue = EECUE.id','inner')
 					->	distinct();
 			$this	->	groupStart()
 					->	like($like[0]);			
@@ -84,5 +86,4 @@ class Classification extends Model
 		return $data;
 	}
 }
-
 ?>

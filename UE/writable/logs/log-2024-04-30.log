@@ -1,0 +1,787 @@
+ERROR - 2024-04-30 05:03:11 --> mysqli_sql_exception: Table 'gestionUe.CUE' doesn't exist in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#6 /var/www/UE/app/Controllers/Back.php(28): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->index()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2024-04-30 05:03:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'gestionUe.CUE' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 4 APPPATH/Controllers/Back.php(28): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:03:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'gestionUe.CUE' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 6 APPPATH/Controllers/Back.php(28): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:03:11 --> [Caused by] mysqli_sql_exception: Table 'gestionUe.CUE' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 7 APPPATH/Controllers/Back.php(28): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->index()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:27:42 --> ErrorException: Undefined variable $grades
+[Method: GET, Route: Back/form_prof]
+in APPPATH/Views/form_prof.php on line 303.
+ 1 APPPATH/Views/form_prof.php(303): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(234): include('/var/www/UE/app/Views/form_prof.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Back.php(434): view()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_prof()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:27:54 --> ErrorException: Undefined variable $grades
+[Method: GET, Route: Back/form_prof]
+in APPPATH/Views/form_prof.php on line 303.
+ 1 APPPATH/Views/form_prof.php(303): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(234): include('/var/www/UE/app/Views/form_prof.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Back.php(434): view()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_prof()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:32:11 --> Error: Class "App\Models\GradeModel" not found
+[Method: GET, Route: ProfController/form_prof]
+in APPPATH/Controllers/ProfController.php on line 10.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->form_prof()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:32:12 --> Error: Class "App\Models\GradeModel" not found
+[Method: GET, Route: ProfController/form_prof]
+in APPPATH/Controllers/ProfController.php on line 10.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->form_prof()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ERROR - 2024-04-30 05:38:42 --> mysqli_sql_exception: Column 'CIN' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(40): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+CRITICAL - 2024-04-30 05:38:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'CIN' cannot be null
+[Method: POST, Route: ProfController/insert]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert()
+ 4 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert()
+ 5 APPPATH/Controllers/ProfController.php(40): CodeIgniter\Model->insert()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:38:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'CIN' cannot be null
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert()
+ 6 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert()
+ 7 APPPATH/Controllers/ProfController.php(40): CodeIgniter\Model->insert()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:38:42 --> [Caused by] mysqli_sql_exception: Column 'CIN' cannot be null
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert()
+ 7 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert()
+ 8 APPPATH/Controllers/ProfController.php(40): CodeIgniter\Model->insert()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ERROR - 2024-04-30 05:39:11 --> mysqli_sql_exception: Unknown table 'gestionUe.Prof' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#6 /var/www/UE/app/Controllers/ProfController.php(44): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2024-04-30 05:39:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'gestionUe.Prof'
+[Method: POST, Route: ProfController/insert]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 4 APPPATH/Controllers/ProfController.php(44): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:39:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'gestionUe.Prof'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 6 APPPATH/Controllers/ProfController.php(44): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:39:11 --> [Caused by] mysqli_sql_exception: Unknown table 'gestionUe.Prof'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 7 APPPATH/Controllers/ProfController.php(44): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ERROR - 2024-04-30 05:40:42 --> mysqli_sql_exception: Duplicate entry '1234567890' for key 'CIN' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(40): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+CRITICAL - 2024-04-30 05:40:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '1234567890' for key 'CIN'
+[Method: POST, Route: ProfController/insert]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert()
+ 4 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert()
+ 5 APPPATH/Controllers/ProfController.php(40): CodeIgniter\Model->insert()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:40:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '1234567890' for key 'CIN'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert()
+ 6 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert()
+ 7 APPPATH/Controllers/ProfController.php(40): CodeIgniter\Model->insert()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:40:42 --> [Caused by] mysqli_sql_exception: Duplicate entry '1234567890' for key 'CIN'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert()
+ 7 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert()
+ 8 APPPATH/Controllers/ProfController.php(40): CodeIgniter\Model->insert()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 05:41:32 --> TypeError: App\Controllers\ProfController::insert(): Return value must be of type string, CodeIgniter\HTTP\RedirectResponse returned
+[Method: POST, Route: ProfController/insert]
+in APPPATH/Controllers/ProfController.php on line 41.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:19:17 --> ParseError: syntax error, unexpected token "->"
+[Method: GET, Route: /]
+in APPPATH/Controllers/Back.php on line 94.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/CodeIgniter.php(887): class_exists()
+ 5 SYSTEMPATH/CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:19:51 --> ParseError: syntax error, unexpected token "->"
+[Method: GET, Route: /]
+in APPPATH/Controllers/Back.php on line 93.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/CodeIgniter.php(887): class_exists()
+ 5 SYSTEMPATH/CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:19:52 --> ParseError: syntax error, unexpected token "->"
+[Method: GET, Route: /]
+in APPPATH/Controllers/Back.php on line 93.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/CodeIgniter.php(887): class_exists()
+ 5 SYSTEMPATH/CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:36:25 --> Error: Call to undefined method App\Controllers\Back::orLike()
+[Method: GET, Route: Back/form_recap]
+in APPPATH/Controllers/Back.php on line 100.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ERROR - 2024-04-30 07:37:08 --> mysqli_sql_exception: Unknown column 'Enseignement.type' in 'field list' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#6 /var/www/UE/app/Controllers/Back.php(102): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2024-04-30 07:37:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Enseignement.type' in 'field list'
+[Method: GET, Route: Back/form_recap]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 4 APPPATH/Controllers/Back.php(102): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:37:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Enseignement.type' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 6 APPPATH/Controllers/Back.php(102): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:37:08 --> [Caused by] mysqli_sql_exception: Unknown column 'Enseignement.type' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 7 APPPATH/Controllers/Back.php(102): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ERROR - 2024-04-30 07:41:20 --> mysqli_sql_exception: Unknown column 'Professeur.grade' in 'where clause' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#6 /var/www/UE/app/Controllers/Back.php(103): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2024-04-30 07:41:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.grade' in 'where clause'
+[Method: GET, Route: Back/form_recap]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 4 APPPATH/Controllers/Back.php(103): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:41:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Professeur.grade' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 6 APPPATH/Controllers/Back.php(103): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:41:20 --> [Caused by] mysqli_sql_exception: Unknown column 'Professeur.grade' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 7 APPPATH/Controllers/Back.php(103): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ERROR - 2024-04-30 07:43:03 --> mysqli_sql_exception: Column 'id' in where clause is ambiguous in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#6 /var/www/UE/app/Controllers/Back.php(252): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->lesProf()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2024-04-30 07:43:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in where clause is ambiguous
+[Method: POST, Route: Back/lesProf/1]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 4 APPPATH/Controllers/Back.php(252): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->lesProf()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:43:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in where clause is ambiguous
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 6 APPPATH/Controllers/Back.php(252): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->lesProf()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:43:03 --> [Caused by] mysqli_sql_exception: Column 'id' in where clause is ambiguous
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 7 APPPATH/Controllers/Back.php(252): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->lesProf()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:55:27 --> ErrorException: Undefined array key 0
+[Method: GET, Route: Back/form_recap]
+in APPPATH/Controllers/Back.php on line 107.
+ 1 APPPATH/Controllers/Back.php(107): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:56:00 --> ErrorException: Undefined array key "id_prof"
+[Method: GET, Route: Back/form_recap]
+in APPPATH/Controllers/Back.php on line 107.
+ 1 APPPATH/Controllers/Back.php(107): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 07:57:00 --> ErrorException: Undefined array key 0
+[Method: GET, Route: Back/form_recap]
+in APPPATH/Controllers/Back.php on line 107.
+ 1 APPPATH/Controllers/Back.php(107): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 08:24:18 --> ParseError: syntax error, unexpected token "endforeach", expecting end of file
+[Method: GET, Route: Back/form_recap]
+in APPPATH/Views/recap.php on line 398.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(114): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 08:25:15 --> ParseError: syntax error, unexpected token "endforeach", expecting end of file
+[Method: GET, Route: Back/form_recap]
+in APPPATH/Views/recap.php on line 398.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(114): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 08:34:33 --> ErrorException: Undefined array key "nomProf"
+[Method: GET, Route: Back/form_recap]
+in APPPATH/Views/recap.php on line 484.
+ 1 APPPATH/Views/recap.php(484): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(234): include('/var/www/UE/app/Views/recap.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Back.php(110): view()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 08:39:41 --> ParseError: syntax error, unexpected token "echo"
+[Method: GET, Route: Back/form_recap]
+in APPPATH/Views/recap.php on line 442.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(110): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form_recap()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 12:12:47 --> ParseError: syntax error, unexpected token "public", expecting end of file
+[Method: GET, Route: Back/form_recap]
+in APPPATH/Controllers/Back.php on line 554.
+ 1 SYSTEMPATH/Router/Router.php(562): CodeIgniter\Router\AutoRouter->getRoute()
+ 2 SYSTEMPATH/Router/Router.php(227): CodeIgniter\Router\Router->autoRoute()
+ 3 SYSTEMPATH/CodeIgniter.php(834): CodeIgniter\Router\Router->handle()
+ 4 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:22:56 --> ErrorException: Undefined variable $prof
+[Method: GET, Route: Back/form]
+in APPPATH/Controllers/Back.php on line 279.
+ 1 APPPATH/Controllers/Back.php(279): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:23:03 --> ErrorException: Undefined variable $prof
+[Method: GET, Route: Back/form]
+in APPPATH/Controllers/Back.php on line 279.
+ 1 APPPATH/Controllers/Back.php(279): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:23:39 --> ParseError: syntax error, unexpected token ")"
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 335.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:24:12 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 578.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:25 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 579.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:26 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 579.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:46 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 576.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:46 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 576.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:47 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 576.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:47 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 576.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:47 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 576.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:47 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 576.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:48 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 576.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 13:25:49 --> ParseError: Unclosed '{' on line 335
+[Method: GET, Route: Back/form]
+in APPPATH/Views/ajout.php on line 576.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Back.php(281): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->form()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 18:30:46 --> Error: Class "App\Models\Etudiant" not found
+[Method: POST, Route: Back/nEtudiant]
+in APPPATH/Controllers/Back.php on line 254.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->nEtudiant()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-04-30 18:34:09 --> Error: Class "App\Models\Etudiant" not found
+[Method: POST, Route: Back/nEtudiant]
+in APPPATH/Controllers/Back.php on line 254.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->nEtudiant()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()

@@ -8,7 +8,7 @@
 <style>
 
   /* Style background */
-      * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -164,31 +164,6 @@
       clip-path: polygon(0 0, 15% 0, 20% 9%, 95% 9%, 100% 14%, 100% 100%, 0 100%);
     }
 
-    .form .square {
-      width: 8vw;
-      height: 10vw;
-      position: absolute;
-      background-color: #f009;
-      z-index: 3;
-      border-radius: 1vw;
-      transform: rotate(60deg);
-    }
-
-    .form .square1 {
-      right: -4vw;
-      top: 40vh;
-    }
-
-    .form .square2 {
-      right: -2vw;
-      top: 50vh;
-    }
-
-    .form .square3 {
-      right: 0;
-      top: 60vh;
-    }
-
     .containerInput {
       margin:auto;
       width: 90%;
@@ -240,6 +215,38 @@
       justify-content:space-around;
     }
 
+    .contents {
+      height: 39vh;
+      max-height: 39vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .ajoutc {
+      border: none;
+      margin-bottom: .8vh;
+      padding: 0;
+      height: 3vh;
+      font-size: 1vw;
+    }
+
+    .generate {
+      font-size: 1vw;
+      cursor: pointer;
+    }
+
+    .containerECUE {
+      width: 59.4vw;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profGrp {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      margin-left: 1vw;
+    }
+
 </style>
 </head>
   <body>
@@ -252,9 +259,15 @@
             </div>
             <div class="title"><h1>Ajouter une Unite d'Enseignement</h1></div>
             <div class="container-user-info">
-              <div class="user-info-name">
-                <a href="http://notre.gestion.mit/">Lister</a>
-              </div>
+                <div class="user-info-name">
+				          <a href="<?php echo base_url('/') ?>">Lister</a>
+                </div>
+                <div class="user-info-name">
+				          <a href="<?php echo base_url('Back/form_recap') ?>">Recapitulation</a>
+                </div>
+		        	  <div class="user-info-name">
+                  <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Ajouter un prof</a>
+                </div>			  
             </div>
           </div>
         <hr />
@@ -266,7 +279,7 @@
       </section>  
     </header>
 
-    <form class="form" action="http://notre.gestion.mit/Back/insert" method="post"  onSubmit="return confirmer();">
+    <form class="form" action="/index.php/Back/insert" method="post"  onSubmit="return confirmer();">
       <div class="containerInput">
         <div class="flex"><div class="input">
           <label for="level">Niveau</label>
@@ -296,27 +309,41 @@
         </div>
       </div></div>
 
-      <div class="isnotque"><div class="flex">
-        <div class="input">        
-          <label for="prof0">Nom du Prof.</label>
-          <input type="text" name="prof0" id="prof0" />          
-        </div>
-        <div class="input">
-          <label for="credit0">Credit</label>
-          <input type="number" name="credit0" id="credit0" />
-        </div>
-        <div class="input">
-          <label for="hour0">Heures</label>
-          <input type="number" name="hour0" id="hour0" />
-        </div>
-    </div></div>
-    <div class="container">
-        <div class="isque" style="display: none">
-          <div class="flex"><div class="input">
-            <label for="number">Nombre de Q.U.E</label>
-            <input type="number" name="number" id="number" />
+      <div class="isnotque">
+        <div class="flex">
+          <div class="input">        
+            <label for="prof0">Nom du Prof.</label>
+            <select name="prof0" id="prof0">
+              <?php foreach($prof as $p){?>
+                <option value="<?=$p["id"]?>"><?=$p["nomProf"]?> <?=$p["prenomProf"]?> </option>
+              <?php } ?>
+            </select>
           </div>
-          <button class="generate">Generer</button></div>
+          <div class="input">
+            <label for="credit0">Credit</label>
+            <input type="number" name="credit0" id="credit0" />
+          </div>
+          <div class="containerCheckbox1">
+            <div class="checkbox ajoutc">
+              <input type="checkbox" id="ED0" name="ED0" class="Checkbox ueCheck">
+              <label for="ED0">Ajouter ED</label>
+            </div>
+            <div class="checkbox ajoutc">
+              <input type="checkbox" id="EP0" name="EP0" class="Checkbox ueCheck">
+              <label for="EP0">Ajouter EP</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="isque" style="display: none">
+          <div class="flex">
+            <div class="input">
+              <label for="number">Nombre de Q.U.E</label>
+              <input type="number" name="number" id="number" />
+            </div>
+            <button class="generate">Generer</button>
+          </div>
           <div class="contents"></div>
         </div>
       </div>
@@ -329,10 +356,7 @@
   <!-- Script -->
 <script>
   
-  function confirmer(){
-      return confirm("Voulez-vous vraiment ajouter cette UE?");
-  }
-
+  
   const que = document.querySelector("#que");
   const isque = document.querySelector(".isque");
   const isnotque = document.querySelector(".isnotque");
@@ -341,6 +365,25 @@
   const contents = document.querySelector(".contents");
   const level = document.querySelector("#level");
   const semester = document.querySelector("#semester");
+  const grpNumber = 8;
+
+  const ueCheck = document.querySelectorAll(".ueCheck");
+  ueCheck.forEach((e) => {
+    e.addEventListener("change", () => {
+      const id = e.getAttribute("id")
+      if (e.checked) {
+        isnotque.appendChild(createEInputs(id, grpNumber));
+      }
+      else {
+        const delDiv = document.querySelector(".container"+ id);
+        isnotque.removeChild(delDiv);
+      }
+    });
+  })
+
+  function confirmer(){
+      return confirm("Voulez-vous vraiment ajouter cette UE?");
+  }
 
   const options = (n) => {
     const option = document.createElement("option");
@@ -394,17 +437,59 @@
         contents.appendChild(createQueInputs(i + 1));
       }
     }
+    const ED = document.querySelectorAll(".Checkbox");
+    ED.forEach((e) => {
+      e.addEventListener("change", () => {
+        const id = e.getAttribute("id")
+        const ndiv = document.querySelector(".containerECUE"+ id.split(/[A-Z]/)[2]);
+        if (e.checked) {
+          ndiv.appendChild(createEInputs(id, grpNumber));
+        }
+        else {
+          const delDiv = document.querySelector(".container"+ id);
+          ndiv.removeChild(delDiv);
+        }
+      });
+    })
   });
 
-  const createQueInputs = (n) => {
+
+
+  const createEInputs = (n, m) => {
     const div = document.createElement("div");
+    div.classList.add("container" + n);
+    div.classList.add("profGrp");
+    for(let j = 1; j <= m ; j++) {
+      const div_input = document.createElement("div");
+      const input = document.createElement("input");
+      const label = document.createElement("label");
+      div_input.setAttribute('class','input');
+      label.setAttribute("for", "prof" + n + "G" + j);
+      label.innerText = "Nom du Prof. " + n + "G" + j;
+      input.setAttribute("type", "text");
+      input.setAttribute("id", "prof" + n + "G" + j);
+      input.setAttribute("name", "prof" + n + "G" + j);
+      div_input.appendChild(label);
+      div_input.appendChild(input);
+      div.appendChild(div_input);      
+    }
+    return div;
+  };
+
+  const createQueInputs = (n) => {
+    const divECUE = document.createElement("div");
+    const div = document.createElement("div");
+    divECUE.classList.add("containerECUE" + n);
+    divECUE.classList.add("containerECUE");
     div.classList.add("container" + n);
     div.classList.add("flex");    
     for (let i = 1; i < 5; i++) {
       const div_input = document.createElement("div");
       const input = document.createElement("input");
       const label = document.createElement("label");
-
+      const select = document.createElement("select");
+      const div1 = document.createElement("div");
+      div1.classList.add("containerCheckbox" + n);
       div_input.setAttribute('class','input');
 
       switch (i) {
@@ -418,9 +503,10 @@
         case 2:
           label.setAttribute("for", "prof" + n);
           label.innerText = "Nom du Prof. n:" + n;
-          input.setAttribute("type", "text");
-          input.setAttribute("id", "prof" + n);
-          input.setAttribute("name", "prof" + n);
+          const profs = document.querySelector("#prof0");
+          select.setAttribute("id", "prof" + n);
+          select.setAttribute("name", "prof" + n);
+          select.innerHTML = profs.innerHTML;
           break;
         case 3:
           label.setAttribute("for", "credit" + n);
@@ -430,19 +516,77 @@
           input.setAttribute("name", "credit" + n);
           break;
         case 4:
-          label.setAttribute("for", "hour" + n);
-          label.innerText = "Nombre d'heure n:" + n;
-          input.setAttribute("type", "number");
-          input.setAttribute("id", "hour" + n);
-          input.setAttribute("name", "hour" + n);
+          const checkbox0 = document.createElement("div");
+          const input0 = document.createElement("input");
+          const label0 = document.createElement("label");
+          label0.setAttribute("for", "ED" + n);
+          label0.innerText = "Ajouter ED";
+          input0.setAttribute("type", "checkbox");
+          input0.setAttribute("id", "ED" + n);
+          input0.setAttribute("name", "ED" + n);
+          input0.classList.add("Checkbox");
+          checkbox0.classList.add("checkbox");
+          checkbox0.classList.add("ajoutc");
+          checkbox0.appendChild(input0);
+          checkbox0.appendChild(label0);
+          div1.appendChild(checkbox0);
+
+          const checkbox1 = document.createElement("div");
+          const input1 = document.createElement("input");
+          const label1 = document.createElement("label");
+          label1.setAttribute("for", "EP" + n);
+          label1.innerText = "Ajouter EP";
+          input1.setAttribute("type", "checkbox");
+          input1.setAttribute("id", "EP" + n);
+          input1.setAttribute("name", "EP" + n);
+          input1.classList.add("Checkbox");
+          checkbox1.classList.add("checkbox");
+          checkbox1.classList.add("ajoutc");
+          checkbox1.appendChild(input1);
+          checkbox1.appendChild(label1);
+          div1.appendChild(checkbox1);
+
           break;
       }
       div_input.appendChild(label);
-      div_input.appendChild(input);      
-      div.appendChild(div_input);
+      select.innerHTML != "" ? div_input.appendChild(select) : div_input.appendChild(input);
+      (div1.innerHTML != "") ? div.appendChild(div1) : div.appendChild(div_input);
     }
-    return div;
+    divECUE.appendChild(div);
+    return divECUE;
   };
+
+
+  async function getGroupNumber() {
+    const grpnum = await postData("<?php echo base_url('Back/nEtudiant') ?>");
+    return grpnum;
+  }
+
+  async function postData(url="", donnee={}) {
+		var data = null;
+		try {
+			const reponse = await fetch(
+				url,
+				{
+					method: "POST",
+					mode: "cors",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					redirect: "follow",
+					body: JSON.stringify(donnee),
+				}
+			);
+			if (!reponse.ok) {
+				throw new Error(`HTTP error! status: ${reponse.status}`);
+			}
+
+			data = await reponse.json();
+		} catch (error) {
+			console.error("Error:", error);
+		}
+		return data;
+  }
 </script>
 
 </html>

@@ -133,7 +133,7 @@
     header .container-menu .menu-bar .container-user-info .user-info-name {
       font-size: 1.2vw;
       border: 0.1vw solid #fff;
-      padding: 0.5vh 5vw;
+      padding: 0.5vh 3vw;
       border-radius: 5vw;
     }
 
@@ -237,7 +237,13 @@
             <div class="title"><h1>Toutes les Unites d'Enseignements</h1></div>
             <div class="container-user-info">
               <div class="user-info-name">
-				  <a href="http://notre.gestion.mit/index.php/Back/form">Ajouter</a>
+      				  <a href="<?php echo base_url('Back/form') ?>">Ajouter</a>
+              </div>
+              <div class="user-info-name">
+      				  <a href="<?php echo base_url('Back/form_recap') ?>">Recapitulation</a>
+              </div>
+              <div class="user-info-name">
+                <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Ajouter un prof</a>
               </div>
             </div>
           </div>
@@ -269,7 +275,7 @@
 			</select>
 		</div>
 
-			<FORM action="http://notre.gestion.mit/index.php/Back/delete_ue" method="post">
+			<FORM action="<?php echo base_url('Back/delete_ue') ?>" method="post">
 				<div class="input">
 					<label for="ue">UE</label>
 					<select name="ue" id="ue">
@@ -278,14 +284,14 @@
 				</div>
 				<div class="input"><input type="submit" value="Delete Ue"/></div>
 			</FORM>
-			<FORM action="http://notre.gestion.mit/index.php/Back/form_search" methode="POST">
+			<FORM action="<?php echo base_url('Back/form_search') ?>" methode="POST">
                 <div class="input">
 					<label for="searched">Filter</label> 
 					<input type="text" name="searched" required/>
 				</div>
 				<div class="input"><INPUT type="submit" value="Filter"></div>
 			</FORM>
-		<a href="http://notre.gestion.mit/index.php/Back/index"><button>All</button></a>
+		<a href="<?php echo base_url('/') ?>"><button>All</button></a>
 	</div>
 	<hr>
 
@@ -293,8 +299,8 @@
 		<div class="flex">
 			<h3>Modifier:</h3>
 			<div class="input">
-				<label for="nameOfQue">Q.U.E</label>
-				<input type="text" name="nameOfQue" id="nameOfQue" required>
+				<label for="nameOfEcue">Q.U.E</label>
+				<input type="text" name="nameOfEcue" id="nameOfEcue" required>
 			</div>
 			<div class="input">
 				<label for="nameOfProf">Nom du Prof</label>
@@ -315,7 +321,7 @@
 
 	<TABLE class="form">
 		<THEAD>
-			<th>QUE</th>
+			<th>ECUE</th>
 			<th>Professeur</th>
 			<th>Credit</th>
 			<th>Heure</th>
@@ -412,9 +418,9 @@
 		return data;
 	}
 
-    //Gestion UE et QUE    
+    //Gestion UE et ECUE    
 	async function display_data(id, s){
-		const data = await postData("http://notre.gestion.mit/index.php/Back/search/<?php echo $to_search?>");
+		const data = await postData("<?php echo base_url('Back/search') ?>/<?php echo $to_search?>");
         console.log(data);
         const levelValue = document.querySelector("#level").value;
 		const semesterValue = document.querySelector("#semester").value;
@@ -440,7 +446,7 @@
 		});
 	}
 
-    //Afficher le table de QUE    
+    //Afficher le table de ECUE    
 	function createTbody(data) {
 		const tbody = document.querySelector(".tbody");
 		tbody.innerHTML = "";
@@ -451,7 +457,7 @@
 				const td = document.createElement("td");
 				switch(parseInt(i)){
 					case 0:
-						td.innerHTML=element.nomQUE;
+						td.innerHTML=element.nomECUE;
 						break;
 					case 1:
 						td.innerHTML=element.nomProf;
@@ -469,15 +475,15 @@
 						mod.addEventListener('click', ()=>{
                             const form_content = document.querySelector("#form-modify");
                             document.getElementById("nameOfProf").setAttribute('value',element.nomProf);
-                            document.getElementById("nameOfQue").setAttribute('value',element.nomQUE);
+                            document.getElementById("nameOfEcue").setAttribute('value',element.nomEECUE);
                             document.getElementById("valueOfCredit").setAttribute('value',element.credit);
                             document.getElementById("nameOfHours").setAttribute('value',element.heure);                            
-                            form_content.action = "http://notre.gestion.mit/Back/update_que/"+element.id;
+                            form_content.action = "<?php echo base_url('Back/update_ecue') ?>/"+element.id;
                             form_content.style.display = "block";
                         });
 						td.appendChild(mod);
 						const del = document.createElement("a");
-						del.setAttribute("href", "http://notre.gestion.mit/index.php/Back/delete_que/"+element.id);
+						del.setAttribute("href", "<?php echo base_url('Back/delete_ecue') ?>/"+element.id);
 						del.innerText = "Delete";
 						del.setAttribute("class", "del");
                         td.appendChild(del);
