@@ -35,9 +35,10 @@ class Classification extends Model
 			$condition["UE.nomUe"]=$ue["nomUe"];
 			$data[$i][]=$ue["id_ue"];
 			$data[$i][]=$ue["nomUe"];
-			$data[$i][] = $this	->select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf')
+			$data[$i][] = $this	->select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf,Enseignement.type,Classification.groupe')
 										->join('Niveau','Classification.niveau = Niveau.id','inner')
 										->join('Semestre','Classification.semestre = Semestre.id','inner')
+										->	join('Enseignement','Classification.enseignement = Enseignement.id','inner')					
 										->join('Professeur','Classification.prof = Professeur.id','inner')
 										->join('UE','Classification.ue = UE.id','inner')
 										->join('ECUE','Classification.ecue = ECUE.id','inner')
@@ -62,27 +63,34 @@ class Classification extends Model
 										->where($condition)
 										->findAll();
 		$i=0;
+
 		foreach($tmp as $ue){
 			$condition["UE.nomUe"]=$ue["nomUe"];
 			$data[$i][]=$ue["id_ue"];
 			$data[$i][]=$ue["nomUe"];
-			$this	->	select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf')
+
+			$this	->	select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf,Enseignement.type,Classification.groupe')
 					->	join('Niveau','Classification.niveau = Niveau.id','inner')
 					->	join('Semestre','Classification.semestre = Semestre.id','inner')
 					->	join('Professeur','Classification.prof = Professeur.id','inner')
+					->	join('Enseignement','Classification.enseignement = Enseignement.id','inner')					
 					->	join('UE','Classification.ue = UE.id','inner')
-					->	join('ECUE','Classification.ecue = EECUE.id','inner')
+					->	join('ECUE','Classification.ecue = ECUE.id','inner')
 					->	distinct();
-			$this	->	groupStart()
-					->	like($like[0]);			
+
+			$this	->	groupStart();
+			$this	->	like($like[0]);			
 			foreach($like as $lk){
 				$this->orLike($lk);
 			}
 			$this->groupEnd();
+
 			$data[$i][]= $this	->	where($condition)
 								->	findAll();
 			$i++;
+
 		}			
+
 		return $data;
 	}
 }

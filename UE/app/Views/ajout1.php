@@ -164,6 +164,31 @@
       clip-path: polygon(0 0, 15% 0, 20% 9%, 95% 9%, 100% 14%, 100% 100%, 0 100%);
     }
 
+    .form .square {
+      width: 8vw;
+      height: 10vw;
+      position: absolute;
+      background-color: #f009;
+      z-index: 3;
+      border-radius: 1vw;
+      transform: rotate(60deg);
+    }
+
+    .form .square1 {
+      right: -4vw;
+      top: 40vh;
+    }
+
+    .form .square2 {
+      right: -2vw;
+      top: 50vh;
+    }
+
+    .form .square3 {
+      right: 0;
+      top: 60vh;
+    }
+
     .containerInput {
       margin:auto;
       width: 90%;
@@ -241,12 +266,6 @@
       flex-direction: column;
     }
 
-    .profGrp {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      margin-left: 1vw;
-    }
-
 </style>
 </head>
   <body>
@@ -266,7 +285,7 @@
 				          <a href="<?php echo base_url('Back/form_recap') ?>">Recapitulation</a>
                 </div>
 		        	  <div class="user-info-name">
-                  <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Ajouter un prof</a>
+                  <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Professeurs</a>
                 </div>			  
             </div>
           </div>
@@ -309,41 +328,31 @@
         </div>
       </div></div>
 
-      <div class="isnotque">
-        <div class="flex">
-          <div class="input">        
-            <label for="prof0">Nom du Prof.</label>
-            <select name="prof0" id="prof0">
-              <?php foreach($prof as $p){?>
-                <option value="<?=$p["id"]?>"><?=$p["nomProf"]?> <?=$p["prenomProf"]?> </option>
-              <?php } ?>
-            </select>
-          </div>
-          <div class="input">
-            <label for="credit0">Credit</label>
-            <input type="number" name="credit0" id="credit0" />
-          </div>
-          <div class="containerCheckbox1">
-            <div class="checkbox ajoutc">
-              <input type="checkbox" id="ED0" name="ED0" class="Checkbox ueCheck">
-              <label for="ED0">Ajouter ED</label>
-            </div>
-            <div class="checkbox ajoutc">
-              <input type="checkbox" id="EP0" name="EP0" class="Checkbox ueCheck">
-              <label for="EP0">Ajouter EP</label>
-            </div>
-          </div>
+      <div class="isnotque"><div class="flex">
+        <div class="input">        
+          <label for="prof0">Nom du Prof.</label>
+          <select name="prof0">
+          <?php foreach($prof as $p){?>
+            <option value="<?=$p["id"]?>"><?=$p["nomProf"]?> <?=$p["prenomProf"]?> </option>
+          <?php } ?>
+          </select>
         </div>
-      </div>
-      <div class="container">
+        <div class="input">
+          <label for="credit0">Credit</label>
+          <input type="number" name="credit0" id="credit0" />
+        </div>
+        <div class="input">
+          <!-- <label for="hour0">Heures</label>
+          <input type="number" name="hour0" id="hour0" /> -->
+        </div>
+    </div></div>
+    <div class="container">
         <div class="isque" style="display: none">
-          <div class="flex">
-            <div class="input">
-              <label for="number">Nombre de Q.U.E</label>
-              <input type="number" name="number" id="number" />
-            </div>
-            <button class="generate">Generer</button>
+          <div class="flex"><div class="input">
+            <label for="number">Nombre de Q.U.E</label>
+            <input type="number" name="number" id="number" />
           </div>
+          <button class="generate">Generer</button></div>
           <div class="contents"></div>
         </div>
       </div>
@@ -356,7 +365,10 @@
   <!-- Script -->
 <script>
   
-  
+  function confirmer(){
+      return confirm("Voulez-vous vraiment ajouter cette UE?");
+  }
+
   const que = document.querySelector("#que");
   const isque = document.querySelector(".isque");
   const isnotque = document.querySelector(".isnotque");
@@ -365,26 +377,6 @@
   const contents = document.querySelector(".contents");
   const level = document.querySelector("#level");
   const semester = document.querySelector("#semester");
-  
-  const ueCheck = document.querySelectorAll(".ueCheck");
-  ueCheck.forEach((e) => {
-    e.addEventListener("change", async () => {
-      const grpNumber = await getGroupNumber();
-      const id = e.getAttribute("id")
-      console.log(grpNumber);
-      if (e.checked) {
-        isnotque.appendChild(createEInputs(id, grpNumber));
-      }
-      else {
-        const delDiv = document.querySelector(".container"+ id);
-        isnotque.removeChild(delDiv);
-      }
-    });
-  })
-
-  function confirmer(){
-      return confirm("Voulez-vous vraiment ajouter cette UE?");
-  }
 
   const options = (n) => {
     const option = document.createElement("option");
@@ -444,7 +436,7 @@
         const id = e.getAttribute("id")
         const ndiv = document.querySelector(".containerECUE"+ id.split(/[A-Z]/)[2]);
         if (e.checked) {
-          ndiv.appendChild(createEInputs(id, grpNumber));
+          ndiv.appendChild(createEInputs(id, 9));
         }
         else {
           const delDiv = document.querySelector(".container"+ id);
@@ -454,30 +446,22 @@
     })
   });
 
-
-
   const createEInputs = (n, m) => {
     const div = document.createElement("div");
     div.classList.add("container" + n);
-    div.classList.add("profGrp");
+    div.classList.add("flex");
     for(let j = 1; j <= m ; j++) {
       const div_input = document.createElement("div");
-      const select = document.createElement("select");
+      const input = document.createElement("input");
       const label = document.createElement("label");
       div_input.setAttribute('class','input');
       label.setAttribute("for", "prof" + n + "G" + j);
-      select.setAttribute("name", "prof" + n + "G" + j);
       label.innerText = "Nom du Prof. " + n + "G" + j;
-      select.innerHTML="";
-      <?php foreach($prof as $p){?>
-          select.innerHTML+="<option value='<?=$p['id']?>'><?=$p['nomProf']?> <?=$p['prenomProf']?> </option>";
-      <?php } ?>
-      // console.log("id="+n);
-      // input.setAttribute("type", "text");
-      // input.setAttribute("id", "prof" + n + "G" + j);
-      // input.setAttribute("name", "prof" + n + "G" + j);
+      input.setAttribute("type", "text");
+      input.setAttribute("id", "prof" + n + "G" + j);
+      input.setAttribute("name", "prof" + n + "G" + j);
       div_input.appendChild(label);
-      div_input.appendChild(select);
+      div_input.appendChild(input);
       div.appendChild(div_input);      
     }
     return div;
@@ -494,7 +478,6 @@
       const div_input = document.createElement("div");
       const input = document.createElement("input");
       const label = document.createElement("label");
-      const select = document.createElement("select");
       const div1 = document.createElement("div");
       div1.classList.add("containerCheckbox" + n);
       div_input.setAttribute('class','input');
@@ -510,10 +493,9 @@
         case 2:
           label.setAttribute("for", "prof" + n);
           label.innerText = "Nom du Prof. n:" + n;
-          const profs = document.querySelector("#prof0");
-          select.setAttribute("id", "prof" + n);
-          select.setAttribute("name", "prof" + n);
-          select.innerHTML = profs.innerHTML;
+          input.setAttribute("type", "text");
+          input.setAttribute("id", "prof" + n);
+          input.setAttribute("name", "prof" + n);
           break;
         case 3:
           label.setAttribute("for", "credit" + n);
@@ -556,18 +538,14 @@
           break;
       }
       div_input.appendChild(label);
-      select.innerHTML != "" ? div_input.appendChild(select) : div_input.appendChild(input);
+      div_input.appendChild(input);  
       (div1.innerHTML != "") ? div.appendChild(div1) : div.appendChild(div_input);
     }
     divECUE.appendChild(div);
     return divECUE;
   };
 
-
   async function getGroupNumber() {
-    const grpnum = await postData("<?php echo base_url('Back/nEtudiant') ?>");
-    // return grpnum.[level.value];
-    return grpnum.num;
   }
 
   async function postData(url="", donnee={}) {

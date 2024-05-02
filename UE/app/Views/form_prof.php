@@ -24,7 +24,7 @@
       width: 100vw;
       height: 100vh;
       background-color: #190306;
-      overflow: hidden;
+      /*overflow: hidden; */
       z-index: 0;
     }
 
@@ -234,12 +234,31 @@
       margin:auto;
       background-color:grey;
     }
-    
+
+    .input button{
+      position:relative;
+      top:-0vh;
+    }
+
     .flex{
       display:flex;
       justify-content:space-around;
     }
 
+    #lister_les_prof, #ajouter_prof{
+      width:40vw;
+      margin-right:1vw;
+      position:absolute;
+      left:33vw;
+    }
+
+    .table{
+      width:100%;
+      overflow:scroll;      
+    }
+    td{
+      text-align:center;
+    }
 </style>
 </head>
   <body>
@@ -259,7 +278,7 @@
       				  <a href="<?php echo base_url('Back/form_recap') ?>">Recapitulation</a>
               </div>
               <div class="user-info-name">
-                <a href="<?php echo base_url('Back/form_prof') ?>" class="btn btn-primary">Ajouter un prof</a>
+                <a href="<?php echo base_url('Back/form') ?>" class="btn btn-primary">Ajouter une UE</a>
               </div>
             </div>
           </div>
@@ -271,9 +290,30 @@
         <div class="back back3"></div>
       </section>  
     </header>
-
+    <div class="input"><button id="lister_les_prof" >Lister les professeurs existants</button>
     <form class="form" action="<?php echo base_url('ProfController/insert') ?>" method="post"  onSubmit="return confirmer();">
-      <div class="containerInput">
+<!-- Lister -->
+    <div class="containerInput" id="list" style="display:none;">
+        <table class="table">
+          <thead>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Grade</th>
+            <th>Courriel</th>
+          </thead>
+          <?php foreach($profs as $p){?>
+            <tr>
+              <td><?=$p["nomProf"]?></td>
+              <td><?=$p["prenomProf"]?></td>              
+              <td><?=$p["idGrade"]?></td>
+              <td><?=$p["mail"]?></td>
+            </tr>          
+          <?php } ?>
+        </table>
+        <?=$pager->links()?>
+    </div>
+<!-- Formulaire -->
+    <div class="containerInput" id="formulaire">
       <div class="flex"><div class="input">
         <label for="nom">Nom:</label>
         <input type="text" name="nom" id="nom" required/>
@@ -322,9 +362,10 @@
         <label for="mail">Mail:</label>
         <input type="email" name="mail" id="mail" />
       </div>
-    </div></div>
-    <div class="input"><input type="submit" value="Enregistrez" /></div>
+      </div></div>
+      <div class="input"><input type="submit" value="Enregistrez" /></div></div>
     </form>
+
     <script src="index.js"></script>
   </body>
 
@@ -335,6 +376,19 @@
         document.getElementById("matricule").style.display = vac.checked ? "block" : "none";
         document.getElementById("input_matricule").setAttribute("required","");
     });
+
+    const choix1 = document.getElementById("lister_les_prof");
+    choix1.addEventListener("click", ()=>{
+        if(choix1.innerHTML!="Ajouter un professeur"){
+          document.getElementById("list").style.display="block";
+          choix1.innerHTML="Ajouter un professeur";
+        }
+        else{
+          document.getElementById("list").style.display="none";
+          choix1.innerHTML="Lister les professeurs existants";
+        }
+    });
+
 </script>
 
 </html>

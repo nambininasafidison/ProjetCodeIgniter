@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use App\Models\Classification;
 use App\Models\Niveau;
-use App\Models\EECUE;
+use App\Models\ECUE;
 use App\Models\Semestre;
 use App\Models\UE;
 use App\Models\Professeur;
@@ -26,6 +26,8 @@ class Back extends BaseController
 									->join('UE','Classification.ue = UE.id','inner')
 									->join('ECUE','Classification.ecue = ECUE.id','inner')
 									->findAll();
+		$profs = new Professeur();
+		$data["prof"] = $profs->select('id,nomProf,prenomProf')->findAll();									
 		return view('list',$data);
 	}
 	///Get form datas of research
@@ -33,26 +35,9 @@ class Back extends BaseController
     {
 		//filtrer
 		$to_search = $this->request->getVar("searched");
-		$champ=["Classification.id","Classification.heure","Classification.credit","Professeur.nomProf","Niveau.nomNiveau","Semestre.nomSemestre","UE.nomUe","ECUE.nomECUE"];
-
-		foreach($champ as $c){
-			$like[][$c]=$to_search;
-		}
-
-		$classify = new Classification();
-		$classify	->select('Classification.id , Classification.ue as id_ue')
-					->join('Niveau','Classification.niveau = Niveau.id','inner')
-					->join('Semestre','Classification.semestre = Semestre.id','inner')
-					->join('Professeur','Classification.prof = Professeur.id','inner')
-					->join('UE','Classification.ue = UE.id','inner')
-					->join('ECUE','Classification.ecue = ECUE.id','inner')
-					->like($like[0]);
-		foreach($like as $l){
-			$classify->orLike($l);
-		}
-		$data["liste"] = $classify->findAll();
 		$data["to_search"]=$to_search;
-
+		$profs = new Professeur();
+		$data["prof"] = $profs->select('id,nomProf,prenomProf')->findAll();									
 
 		return view('filter',$data);
 	}
@@ -104,7 +89,7 @@ class Back extends BaseController
 		$data["to_search"] = $to_search;
 		$data["field"]=$field;
 		if($field == "Professeur"){
-			$data["id_prof"]= $data["liste"][0]["id_prof"];
+			if(!empty($data["liste"]))$data["id_prof"]= $data["liste"][0]["id_prof"];
 		}
 
 		return view("recap",$data);
@@ -204,7 +189,7 @@ class Back extends BaseController
     {
 		//recherche
 		$this->response->setContentType('application/json');
-		$champ=["Classification.id","Classification.heure","Classification.credit","Professeur.nomProf","Niveau.nomNiveau","Semestre.nomSemestre","UE.nomUe","ECUE.nomECUE"];
+		$champ=["Classification.id","Classification.heure","Classification.credit","Professeur.nomProf","Professeur.prenomProf","Niveau.nomNiveau","Semestre.nomSemestre","UE.nomUe","ECUE.nomECUE"];
 
 		foreach($champ as $c){
 			$like[][$c]=$to_search;
@@ -239,18 +224,31 @@ class Back extends BaseController
 		return json_encode($data);		
 	}
 
-	public function lesProf($id_prof){
+	public function lesProf($type,$search_prof){
 		$this->response->setContentType('application/json');
 		$prof = new Professeur();
-		$data=$prof		->select("Professeur.*,grade.nomGrade as grade")
-						->join("grade","Professeur.idGrade = grade.id","inner")
-						->where("Professeur.id",$id_prof)
-						->findAll();
+		if($type!="ALL"){
+			$data=$prof		->select("Professeur.*,grade.nomGrade as grade")
+							->join("grade","Professeur.idGrade = grade.id","inner")
+							->where("Professeur.".$type,$search_prof)
+							->findAll();
+		}
+		else if($type=="ALL"){
+			$champ = ["Professeur.nomProf","Professeur.prenomProf","Professeur.idGrade","Professeur.adresse","Professeur.tel","Professeur.mail","Professeur.vacataire","Professeur.matricule","Professeur.CIN"];
+			$prof	->select("Professeur.*,grade.nomGrade as grade")
+					->join("grade","Professeur.idGrade = grade.id","inner")
+					->like($champ[0],$search_prof);
+				foreach($champ as $ch){
+					$prof	->orLike($ch,$search_prof);
+				}
+			$data=$prof->findAll();			
+		}
 		return json_encode($data);
 	}
 
 	public function nEtudiant(){
 		$this->response->setContentType('application/json');
+/*
 		$etudiants = new Etudiant();
 		$level = ["1","2","3"];
 		foreach($level as $l){
@@ -269,6 +267,9 @@ class Back extends BaseController
 			$data[$l]= $etudiants->getTotal($condition);
 		}
 		return json_encode($data);		
+*/
+		$data["num"]=2;
+		return json_encode($data);
 	}
 
 	///Ajout UE
@@ -379,18 +380,21 @@ class Back extends BaseController
 		$ue = new UE();
 		$ecue = new ECUE();
 		$prof = new Professeur();
-		$etudiants = new Inscription();
+	//		$etudiants = new Etudiant();
 		$niveau = new Niveau();
+		$enseignement = new Enseignement();
 
 		//Get number
-		$niv = $niveau ->where("id",$this->request->getVar("level"))->findAll();		
-		$condition=[
-			"grade" => $niv[0]["nomNiveau"][0],
-			"niveau" => $niv[0]["nomNiveau"][1]
-		];
-		$count= $etudiants->getTotal($condition);
-		$count = (int)($count / 20);
-
+	/*
+			$niv = $niveau ->where("id",$this->request->getVar("level"))->findAll();		
+			$condition=[
+				"grade" => $niv[0]["nomNiveau"][0],
+				"niveau" => $niv[0]["nomNiveau"][1]
+			];
+			$count= $etudiants->getTotal($condition);
+			$count = (int)($count / 20);
+	*/
+		$count=2;
 		//get UE and ECUE inputs
 		$data_UE=[
 			'nomUe' => $this->request->getVar("name0"),
@@ -447,6 +451,7 @@ class Back extends BaseController
 		for($i=0;$i<$num;$i++){
 			$id_ecue[]=$ecue ->where($data_ECUE[$i])
 				->findAll();
+			$type = $enseignement->orderBy("id")->findAll(); 
 		}
 
 		//insert to Classification table
@@ -454,28 +459,28 @@ class Back extends BaseController
 			$toInsert=[
 				'niveau' => $this->request->getVar("level"),
 				'semestre' => $this->request->getVar("semester"),
-				'heure' => ($data_credit[$i] * 10),
+				'heure' => ((int)$data_credit[$i] * 10),
 				'credit' => $data_credit[$i],
 				'ecue' => $id_ecue[$i][0]["id"],
 				'prof' => $data_Prof[$i]["nomProf"],
 				'ue' => $id_ue[0]["id"],
-				'enseignement' => "ET"
+				'enseignement' => $type[0]["id"] //ilay ET
 			];
 			$classify->ignore(true)->insert($toInsert);
-			if(!empty($this->request->getVar("nameED0G1"))||!empty($this->request->getVar("nameED1G1"))){
-				for($n=0;$n<$count;$n++){						
-					$toInsert["enseignement"]="ED";
-					$toInsert["groupe"]=$count;
-					if(!empty($this->request->getVar("name0")))$toInsert["prof"]=$this->request->getVar("profED".$i."G".$n);
+			if(!empty($this->request->getVar("profED0G1"))||!empty($this->request->getVar("profED1G1"))){
+				for($n=1;$n<=$count;$n++){						
+					$toInsert["enseignement"]=$type[1]["id"];
+					$toInsert["groupe"]=$n;
+					if(!empty($this->request->getVar("name0")))$toInsert["prof"]=$this->request->getVar("profED0G".$n);
 					else $toInsert["prof"]=$this->request->getVar("profED".($i+1)."G".$n);
 					$classify->ignore(true)->insert($toInsert);
 				}
 			}
-			if(!empty($this->request->getVar("nameEP0G1"))||!empty($this->request->getVar("nameEP1G1"))){		
+			if(!empty($this->request->getVar("profEP0G1"))||!empty($this->request->getVar("profEP1G1"))){		
 				for($n=0;$n<$count;$n++){						
-					$toInsert["enseignement"]="EP";
-					$toInsert["groupe"]=$count;
-					if(!empty($this->request->getVar("name0")))$toInsert["prof"]=$this->request->getVar("profEP".$i."G".$n);
+					$toInsert["enseignement"]=$type[2]["id"];
+					$toInsert["groupe"]=$n;
+					if(!empty($this->request->getVar("name0")))$toInsert["prof"]=$this->request->getVar("profEP0G".$n);
 					else $toInsert["prof"]=$this->request->getVar("profEP".($i+1)."G".$n);
 					$classify->ignore(true)->insert($toInsert);
 				}
@@ -733,31 +738,19 @@ class Back extends BaseController
 		$data_ECUE=[
 			'nomECUE' => $this->request->getVar("nameOfEcue")
 			];
-		$data_Prof=[
-			"nomProf" => $this->request->getVar("nameOfProf")
-		];
-		$data_hour=[
-			"heure" => $this->request->getVar("nameOfHours")
-		];
-		$data_credit=[
-			"credit" => $this->request->getVar("valueOfCredit")
-		];
 
 		//insert all
 		$ecue->ignore(true)->insert($data_ECUE);
-		$prof->ignore(true)->insert($data_Prof);
 		//Get all ids
 			$id_ecue=$ecue ->where($data_ECUE)
-				->findAll();
-			$id_prof=$prof ->where($data_Prof)
 				->findAll();
 
 		//insert to Classification table
 		$toInsert=[
-			'heure' => $this->request->getVar("nameOfHours"),
+			'heure' => (10*$this->request->getVar("valueOfCredit")),
 			'credit' => $this->request->getVar("valueOfCredit"),
 			'ecue' => $id_ecue[0]["id"],
-			'prof' => $id_prof[0]["id"],
+			'prof' => $this->request->getVar("nameOfProf"),
 		];
 		$classify->ignore(true)->update($id,$toInsert);
 		return redirect()->to('Back/index');	

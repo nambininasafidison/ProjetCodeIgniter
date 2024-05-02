@@ -8,7 +8,10 @@ class ProfController extends BaseController
 {
     public function form_prof(){
         $model = new Grade();
+        $profMod = new Professeur();
         $data["grades"] = $model->findAll();
+        $data["profs"] = $profMod->paginate(5);
+        $data["pager"] = $profMod->pager;
         return view('form_prof' , $data);
     }
 

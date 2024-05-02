@@ -3,7 +3,7 @@
   namespace App\Models;
   use CodeIgniter\Model;
 
-class Professeur extends Model
+class Etudiant extends Model
 {
     protected $db="mit";
 	protected $table = 'Inscription';

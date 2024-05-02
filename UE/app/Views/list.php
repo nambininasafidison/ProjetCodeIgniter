@@ -237,13 +237,13 @@
             <div class="title"><h1>Toutes les Unites d'Enseignements</h1></div>
             <div class="container-user-info">
               <div class="user-info-name">
-				  <a href="<?php echo base_url('Back/form') ?>">Ajouter</a>
+				  <a href="<?php echo base_url('Back/form') ?>">Ajouter une UE</a>
               </div>
               <div class="user-info-name">
 				  <a href="<?php echo base_url('Back/form_recap') ?>">Recapitulation</a>
               </div>
 			  <div class="user-info-name">
-                <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Ajouter un prof</a>
+                <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Professeurs</a>
               </div>			  
 			</div>
           </div>
@@ -302,17 +302,17 @@
 				<label for="nameOfEcue">Q.U.E</label>
 				<input type="text" name="nameOfEcue" id="nameOfEcue" required>
 			</div>
-			<div class="input">
-				<label for="nameOfProf">Nom du Prof</label>
-				<input type="text" name="nameOfProf" id="nameOfProf" required>
-			</div>
+			<div class="input">        
+          		<label for="nameOfProf">Nom du Prof.</label>
+          		<select name="nameOfProf" id="nameOfProf">
+        		  <?php foreach($prof as $p){?>
+        		    <option value="<?=$p["id"]?>"><?=$p["nomProf"]?> <?=$p["prenomProf"]?></option>
+        		  <?php } ?>
+    	      </select>
+	        </div>
 			<div class="input">
 				<label for="valueOfCredit">Credit</label>
 				<input type="number" name="valueOfCredit" id="valueOfCredit" required>
-			</div>
-			<div class="input">
-				<label for="nameOfHours">Heure</label>
-				<input type="number" name="nameOfHours" id="nameOfHours" required>
 			</div>
 			<div class="input"><input type="submit" value="apply"></div>
 		</div>
@@ -325,6 +325,8 @@
 			<th>Professeur</th>
 			<th>Credit</th>
 			<th>Heure</th>
+			<th>Enseignement</th>
+			<th>Groupe</th>
 			<th>Actions</th>
 		</THEAD>
 
@@ -338,8 +340,10 @@
 <script>
 	//Confirmer
 	function confirmer(){
-      return confirm("Voulez-vous vraiment le modifier?");
-  	}
+      reponse = confirm("Voulez-vous vraiment le modifier?");
+	  return reponse;
+	}
+
 	//Gestion Niveau et Semestre
 	function niv_and_semester(){
 		const level = document.querySelector("#level");
@@ -456,7 +460,7 @@
 		data.map((element) => {
 			const tr = document.createElement("tr");
 
-			for(let i=0;i<5;i++){
+			for(let i=0;i<7;i++){
 				const td = document.createElement("td");
 				switch(parseInt(i)){
 					case 0:
@@ -472,15 +476,29 @@
 						td.innerHTML=element.heure;
 						break;
 					case 4:
+						td.innerHTML=element.type;
+						break;
+					case 5:
+						if(element.groupe==null)element.groupe="--";
+						td.innerHTML=element.groupe;
+						break;
+					case 6:
 						const mod = document.createElement("button");
 						mod.innerText = "Modify";
 						
 						mod.addEventListener('click', ()=>{
 							const form_content = document.querySelector("#form-modify");
-							document.getElementById("nameOfProf").setAttribute('value',element.nomProf);
+							
+							options = document.querySelectorAll("#nameOfProf option");
+							for(opt of options){
+								if(opt.innerHTML == element.nomProf+" "+element.prenomProf){
+									opt.setAttribute("selected","");
+								}
+								console.log(opt.innerHTML+" et "+element.nomProf+" "+element.prenomProf+"\n");
+							}
+
 							document.getElementById("nameOfEcue").setAttribute('value',element.nomECUE);
 							document.getElementById("valueOfCredit").setAttribute('value',element.credit);
-							document.getElementById("nameOfHours").setAttribute('value',element.heure);                            
 							form_content.action = "<?php echo base_url('Back/update_ecue') ?>/"+element.id;
 							form_content.style.display = "block";
 						});

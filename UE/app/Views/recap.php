@@ -228,7 +228,7 @@
       width:90vw;
       background-color:#fff;
       margin: 0 5vw;
-      margin-top:3vh;
+      margin-top:5vh;
       padding:5vw 2vw;
       display:flex;
       flex-direction:column;
@@ -236,8 +236,13 @@
     }
 
     .tab_to_pdf table{
-        width:86vw;
+        width:80vw;
       }
+
+    table, p{
+      margin:auto;
+      text-align:center;
+    }
 
     .titre_recherche{
       font-size:3vw;
@@ -252,24 +257,75 @@
       header, .flex , hr{
         display: none;
       }
+      body{
+        background-color:#fff;
+      }
       .tab_to_pdf{
         width:100vw;
         padding: 0;
         margin: 0;
-        /* display:flex; */
-        /* flex-direction:column; */
-        /* align-items:center; */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
       }
 
-      .tab_to_pdf table{
+      .tab_to_pdf table,#prof_info{
         width: 100vw;
         margin: 0;
         padding: 0;
+        border:.2px;
       }
     }
 
     #debug-icon {
       display: none;
+    }
+
+    #prof_au_choix, #none{
+      position:absolute;
+      top:65%;
+      left:25%;
+      margin:auto;
+      padding:5vw;
+      width:50vw;
+      height:50 vh;
+      background-color:#190306;
+      border-radius:10px;
+      border:2px solid white;
+      box-shadow:0px 0px 1000000000px #fff;
+      color:#fff;      
+      display:flex;
+      flex-direction:column;
+    }
+    #none{
+      top:50%;
+    }
+
+    #prof_au_choix form{
+      display:flex;
+      flex-direction:column;
+    }
+
+    #prof_au_choix p{
+      margin:auto;
+      padding-bottom:3vw;
+    }
+
+    .submit{
+      display:block;
+      margin:auto;
+    }
+
+    #prof_au_choix form table{
+      margin-bottom:3vw;
+      width:100%;
+    }
+    td{
+      text-align: center;
+      margin:3vw;
+    }
+    th{
+      margin:3vw;
     }
 
 </style>
@@ -285,13 +341,13 @@
             <div class="title"><h1>Toutes les Unites d'Enseignements</h1></div>
             <div class="container-user-info">
                 <div class="user-info-name">
-			        <a href="<?php echo base_url('Back/form') ?>">Ajouter</a>
+			        <a href="<?php echo base_url('Back/form') ?>">Ajouter une UE</a>
                 </div>
                 <div class="user-info-name">
                     <a href="<?php echo base_url('/') ?>" class="btn btn-primary">Lister</a>
                 </div>
                 <div class="user-info-name">
-                    <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Ajouter un prof</a>
+                    <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Professeurs</a>
                 </div>
             </div>
           </div>
@@ -303,24 +359,43 @@
         <div class="back back3"></div>
       </section>  
     </header>
+    <section>
+      <!-- Message none -->
+      <section id="none" style="display:none;">      
+        <p>Aucun resultat.</p>
+        <button id="dacc">OK</button>
+      </section>
+    </section>
+    <section id="prof_au_choix" style="display:none;">
+      <p>Resultat pour: <b id="pour"></b></p>
+      <FORM action="<?php echo base_url('Back/form_recap') ?>" method="POST">          
+        <input type="text" name="field" id="new_field" value="Professeur" style="display:none;"/>
+        <table border="1">
+          <tbody id="recherche_prof">
 
+          </tbody>
+        </table>  
+        <p><input type="submit" class="submit" value="Envoyer"/></p>
+      </form>
+    </section>
+<!--  -->
 	<div class="flex">
-			<FORM action="<?php echo base_url('Back/form_recap') ?>" methode="POST">
-				<div class="input">
-					<label for="field">Filter</label> 
-                    <select name="field" id="level">
-				        <option selected>Niveau</option>
-				        <option >Semestre</option>
-				        <option >Professeur</option>
-				        <option >Enseignement</option>
-		        		<option >UE</option>
-		        		<option >ECUE</option>
-		        		<option >Credit</option>
-                    </select>
-                    <input type="text" name="to_search" required/>
-				</div>
-				<div class="input"><INPUT type="submit" value="Filter"></div>
-			</FORM>
+  <FORM action="<?php echo base_url('Back/form_recap')?>" method="POST" id="check">
+    <div class="input">
+        <label for="field">Filter</label> 
+        <select name="field" id="field">
+            <option selected>Niveau</option>
+            <option>Semestre</option>
+            <option>Professeur</option>
+            <option>Enseignement</option>
+            <option>UE</option>
+            <option>ECUE</option>
+            <option>Credit</option>
+        </select>
+        <input type="text" name="to_search" id="inpSearch" required/>
+    </div>
+    <div class="input"><INPUT type="submit" value="Filter"></div>
+</FORM>
 		<a href="<?php echo base_url('/') ?>"><button>All</button></a>
         <!-- <a href="<?php //echo base_url('Back/toPdf') ?>"><button>To PDF</button></a> -->
         <button class="topdf">To PDF</button>
@@ -579,10 +654,68 @@
           </tr>
           </table>
       </center>
-    </div>
+  </div>
     <!-- Les scripts -->
-<script>
 
+<script>
+/*
+  document.getElementById("ch").addEventListener("submit",function(event){
+    const field = document.getElementById("field");
+    const to_search = document.getElementById("to_search");
+    const list = dodument.getElementById("recherche_prof");
+    list.innerHTML="";
+    alert("atooo");
+    console.log("ato");
+/*
+    if(field.value == "Professeur"){
+      const data = await postData("<?php echo base_url('Back/lesProf') ?>/ALL/"+to_search.value);
+      
+      if(data.length>1){
+        document.getElementById("pour").innerHTML=to_search.value;
+        document.getElementById("new_to_search").value=to_search.value;
+        for(let i=0;i<data.length;i++){
+          list.innerHTML+="<tr><input type='checkbox' name='to_search' value='"+data[i]["nomProf"]+"'"+data[i]["nomProf"]+"</td><td>"+data[i]["prenomProf"]+"</td></tr>";
+        }
+        ducument.getElementById("prof_au_choix").innerHTML+="Selectionner votre choix.";
+        ducument.getElementById("prof_au_choix").style.display="block";
+        return false;
+      }
+      else{
+        return true;
+      }
+    }
+    else{
+      return true;
+    }
+/
+    event.preventDefault();
+  });
+*/
+  document.getElementById("check").addEventListener("submit", async function(event) {
+    const field = document.getElementById("field");
+    const to_search = document.getElementById("inpSearch");
+
+    if(field.value == "Professeur"){
+      event.preventDefault();
+      const data = await postData("<?php echo base_url('Back/lesProf') ?>/ALL/"+to_search.value);
+      if(data.length>0){
+        document.getElementById("prof_au_choix").style.display = "block";
+        const list = document.getElementById("recherche_prof");
+        list.innerHTML = ""; // Assurez-vous de réinitialiser l'innerHTML avant d'ajouter du contenu
+        document.getElementById("pour").innerHTML = to_search.value;
+        for(let i = 0; i < data.length; i++){
+            list.innerHTML += "<tr><td><input type='checkbox' name='to_search' value='" + data[i]["CIN"] + "'/></td><td>" + data[i]["nomProf"]+" "+data[i]["prenomProf"] + "</td></tr>";
+        }
+        document.getElementById("prof_au_choix").innerHTML += "<p>Selectionner votre choix.</p>";
+      }
+      else{
+        document.getElementById("none").style.display="block";
+        console.log("attt");
+      }
+    }
+  });
+  
+  document.getElementById("dacc").addEventListener("click",()=>{document.getElementById("none").style.display="none";});
   const topdf = document.querySelector(".topdf");
 
   topdf.addEventListener("click", () => {
@@ -624,7 +757,7 @@
 	//Gestion UE et ECUE 
 
 	async function display_data(id_prof){
-    const data = await postData("<?php echo base_url('Back/lesProf') ?>/"+id_prof);
+    const data = await postData("<?php echo base_url('Back/lesProf') ?>/id/"+id_prof);
     console.log(data);
     $infoProf = document.getElementById("prof_info");
     var vacat;
@@ -643,13 +776,20 @@
 
   <?php
 
-    if(isset($id_prof)){
-      echo "display_data(".$id_prof.");";  
+    if($to_search==""){
+      echo "document.getElementById('form_tsotra').style.display='none';";
+      echo "document.getElementById('prof_info').style.display='none';";      
     }
+    else if(isset($liste)&&(count($liste)==0)) echo "document.getElementById(\"none\").style.display='block'";
     else{
-      echo "document.getElementById('form_tsotra').style.display='block';";
-    }
 
+      if(isset($id_prof)){
+        echo "display_data(".$id_prof.");";  
+      }
+      else{
+        echo "document.getElementById('form_tsotra').style.display='block';";
+      }
+    }
   ?>
 
   //display_data(1);
