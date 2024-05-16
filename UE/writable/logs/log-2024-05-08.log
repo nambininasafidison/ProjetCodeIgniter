@@ -1,0 +1,1158 @@
+INFO - 2024-05-08 05:37:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:39:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-08 05:39:01 --> mysqli_sql_exception: Unknown column 'jour.day' in 'field list' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#6 /var/www/UE/app/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/app/Controllers/Back.php(141): App\Models\Classification->divide()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->filter()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+CRITICAL - 2024-05-08 05:39:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'jour.day' in 'field list'
+[Method: POST, Route: Back/filter]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 4 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(141): App\Models\Classification->divide()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-05-08 05:39:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'jour.day' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 6 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(141): App\Models\Classification->divide()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-05-08 05:39:01 --> [Caused by] mysqli_sql_exception: Unknown column 'jour.day' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 7 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(141): App\Models\Classification->divide()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+INFO - 2024-05-08 05:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:39:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:39:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:40:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:42:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:48:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-08 05:55:48 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Controllers/UserController.php on line 109.
+ 1 APPPATH/Controllers/UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2024-05-08 05:56:02 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Controllers/UserController.php on line 109.
+ 1 APPPATH/Controllers/UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+INFO - 2024-05-08 05:56:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 05:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 07:05:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-08 07:05:00 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /var/www/UE/system/Database/MySQLi/Connection.php:187
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(187): mysqli->real_connect('localhost', 'root', '12345678', 'gestionUe', 3306, '', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /var/www/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classif...', Array, false)
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /var/www/UE/app/Controllers/Back.php(49): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->index()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /var/www/UE/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /var/www/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /var/www/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classif...', Array, false)
+#3 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#4 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /var/www/UE/app/Controllers/Back.php(49): CodeIgniter\BaseModel->findAll()
+#6 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->index()
+#7 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#8 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-05-08 07:05:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 457.
+ 1 SYSTEMPATH/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`', [], false)
+ 3 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/Back.php(49): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 08:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-08 08:45:31 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /var/www/UE/system/Database/MySQLi/Connection.php:187
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(187): mysqli->real_connect('localhost', 'root', '12345678', 'gestionUe', 3306, '', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /var/www/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classif...', Array, false)
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /var/www/UE/app/Controllers/Back.php(49): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->index()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /var/www/UE/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /var/www/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /var/www/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classif...', Array, false)
+#3 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#4 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /var/www/UE/app/Controllers/Back.php(49): CodeIgniter\BaseModel->findAll()
+#6 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->index()
+#7 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#8 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-05-08 08:45:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 457.
+ 1 SYSTEMPATH/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`', [], false)
+ 3 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/Back.php(49): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 08:48:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-08 08:48:05 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'mit'@'%' to database 'gestionUe' in /var/www/UE/system/Database/MySQLi/Connection.php:187
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(187): mysqli->real_connect('localhost', 'mit', '123456', 'gestionUe', 3306, '', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /var/www/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classif...', Array, false)
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /var/www/UE/app/Controllers/Back.php(49): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->index()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'%' to database 'gestionUe' in /var/www/UE/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /var/www/UE/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /var/www/UE/system/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classif...', Array, false)
+#3 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#4 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /var/www/UE/app/Controllers/Back.php(49): CodeIgniter\BaseModel->findAll()
+#6 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->index()
+#7 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#8 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-05-08 08:48:05 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'%' to database 'gestionUe'
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 457.
+ 1 SYSTEMPATH/Database/BaseConnection.php(604): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `Classification`.`id`, `Classification`.`ue` as `id_ue`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`', [], false)
+ 3 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/Back.php(49): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 08:49:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-08 08:49:17 --> mysqli_sql_exception: Unknown column 'Classification.heure_edt_debut' in 'field list' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /var/www/UE/app/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/app/Controllers/Back.php(142): App\Models\Classification->divide(Array)
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->filter()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-05-08 08:49:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Classification.heure_edt_debut' in 'field list'
+[Method: POST, Route: Back/filter]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 08:49:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Classification.heure_edt_debut' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 08:49:17 --> [Caused by] mysqli_sql_exception: Unknown column 'Classification.heure_edt_debut' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 08:50:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-08 08:50:45 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Controllers/UserController.php on line 109.
+ 1 APPPATH/Controllers/UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/var/www/UE/app/Controllers/UserController.php', 109)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 08:53:17 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Controllers/UserController.php on line 109.
+ 1 APPPATH/Controllers/UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/var/www/UE/app/Controllers/UserController.php', 109)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 08:58:44 --> ErrorException: Undefined variable $route
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Config/Routes.php on line 10.
+ 1 APPPATH/Config/Routes.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $route', '/var/www/UE/app/Config/Routes.php', 10)
+ 2 SYSTEMPATH/Router/RouteCollection.php(340): require('/var/www/UE/app/Config/Routes.php')
+ 3 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 4 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 08:59:51 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Controllers/UserController.php on line 109.
+ 1 APPPATH/Controllers/UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/var/www/UE/app/Controllers/UserController.php', 109)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 09:00:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-08 09:00:48 --> mysqli_sql_exception: Unknown column 'nom' in 'where clause' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/UE/system/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/app/Models/UserModel.php(46): CodeIgniter\Model->__call('get', Array)
+#6 /var/www/UE/app/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-05-08 09:00:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nom' in 'where clause'
+[Method: POST, Route: connexion]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 2 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:00:48 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nom' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 4 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:00:48 --> [Caused by] mysqli_sql_exception: Unknown column 'nom' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 5 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-05-08 09:00:51 --> mysqli_sql_exception: Unknown column 'nom' in 'where clause' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/UE/system/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/app/Models/UserModel.php(46): CodeIgniter\Model->__call('get', Array)
+#6 /var/www/UE/app/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-05-08 09:00:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nom' in 'where clause'
+[Method: POST, Route: connexion]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 2 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:00:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nom' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 4 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:00:51 --> [Caused by] mysqli_sql_exception: Unknown column 'nom' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 5 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-05-08 09:00:53 --> mysqli_sql_exception: Unknown column 'nom' in 'where clause' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/UE/system/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/app/Models/UserModel.php(46): CodeIgniter\Model->__call('get', Array)
+#6 /var/www/UE/app/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-05-08 09:00:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nom' in 'where clause'
+[Method: POST, Route: connexion]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 2 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:00:53 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nom' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 4 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:00:53 --> [Caused by] mysqli_sql_exception: Unknown column 'nom' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 5 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-05-08 09:05:06 --> mysqli_sql_exception: Unknown column 'nom' in 'where clause' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/UE/system/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/app/Models/UserModel.php(46): CodeIgniter\Model->__call('get', Array)
+#6 /var/www/UE/app/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+#7 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+#8 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#9 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-05-08 09:05:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nom' in 'where clause'
+[Method: POST, Route: connexion]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 2 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:05:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nom' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 4 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:05:06 --> [Caused by] mysqli_sql_exception: Unknown column 'nom' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = \'Rakoto\'
+AND `prenoms` = \'Herilala\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `utilisateurs`
+WHERE `nom` = :nom:
+AND `prenoms` = :prenoms:', [...], false)
+ 5 SYSTEMPATH/Model.php(919): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/UserModel.php(46): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/UserController.php(63): App\Models\UserModel->getInfo('Rakoto', 'Herilala')
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 09:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-08 09:13:03 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Controllers/UserController.php on line 109.
+ 1 APPPATH/Controllers/UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/var/www/UE/app/Controllers/UserController.php', 109)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:13:58 --> ErrorException: Undefined array key 0
+[Method: POST, Route: connexion]
+in APPPATH/Controllers/UserController.php on line 65.
+ 1 APPPATH/Controllers/UserController.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', '/var/www/UE/app/Controllers/UserController.php', 65)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:15:17 --> ErrorException: Undefined array key 0
+[Method: POST, Route: connexion]
+in APPPATH/Controllers/UserController.php on line 65.
+ 1 APPPATH/Controllers/UserController.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', '/var/www/UE/app/Controllers/UserController.php', 65)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:15:55 --> ErrorException: Undefined array key "password"
+[Method: POST, Route: inscription]
+in APPPATH/Controllers/UserController.php on line 119.
+ 1 APPPATH/Controllers/UserController.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "password"', '/var/www/UE/app/Controllers/UserController.php', 119)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 09:16:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 09:19:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 09:19:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-08 09:19:32 --> mysqli_sql_exception: Unknown column 'Classification.heure_edt_debut' in 'field list' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /var/www/UE/app/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/app/Controllers/Back.php(142): App\Models\Classification->divide(Array)
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->filter()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-05-08 09:19:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Classification.heure_edt_debut' in 'field list'
+[Method: POST, Route: Back/filter]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:19:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Classification.heure_edt_debut' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:19:32 --> [Caused by] mysqli_sql_exception: Unknown column 'Classification.heure_edt_debut' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 09:20:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 09:20:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-08 09:20:21 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Controllers/UserController.php on line 109.
+ 1 APPPATH/Controllers/UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/var/www/UE/app/Controllers/UserController.php', 109)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:21:15 --> ErrorException: Undefined array key "nom"
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Controllers/UserController.php on line 109.
+ 1 APPPATH/Controllers/UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nom"', '/var/www/UE/app/Controllers/UserController.php', 109)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:24:09 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: UserController/inscription]
+in APPPATH/Controllers/UserController.php on line 109.
+ 1 APPPATH/Controllers/UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/var/www/UE/app/Controllers/UserController.php', 109)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->inscription()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:30:54 --> ErrorException: Undefined array key 0
+[Method: GET, Route: UserController/connexion]
+in APPPATH/Controllers/UserController.php on line 65.
+ 1 APPPATH/Controllers/UserController.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', '/var/www/UE/app/Controllers/UserController.php', 65)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 09:31:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 09:31:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 09:31:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-08 09:32:01 --> mysqli_sql_exception: Unknown column 'Classification.heure_edt_debut' in 'field list' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /var/www/UE/app/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/app/Controllers/Back.php(142): App\Models\Classification->divide(Array)
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->filter()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-05-08 09:32:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Classification.heure_edt_debut' in 'field list'
+[Method: POST, Route: Back/filter]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:32:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Classification.heure_edt_debut' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-08 09:32:01 --> [Caused by] mysqli_sql_exception: Unknown column 'Classification.heure_edt_debut' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-05-08 09:32:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 09:32:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-08 09:47:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-08 09:49:16 --> ErrorException: Undefined array key 0
+[Method: GET, Route: UserController/connexion]
+in APPPATH/Controllers/UserController.php on line 65.
+ 1 APPPATH/Controllers/UserController.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', '/var/www/UE/app/Controllers/UserController.php', 65)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserController->connexion()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

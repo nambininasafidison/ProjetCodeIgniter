@@ -5,13 +5,13 @@
 
 class Etudiant extends Model
 {
-    protected $db="mit";
-	protected $table = 'Inscription';
+	protected $table = 'inscription';
 	protected $allowedFields =[
+		"grade","niveau"
 	];
 
     public function getTotal($condition){
-        return $this->where($condition)->countAllResults();
+        return (int) ($this->where($condition)->countAllResults() / 20);
     }
 }
 

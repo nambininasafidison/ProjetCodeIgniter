@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <title>Ajouter</title>
 <style>
 
@@ -12,12 +11,6 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: pop;
-    }
-
-    @font-face {
-      font-family: pop;
-      src: url(../assets/FontsFree-Net-Poppins-Medium.ttf);
     }
 
     body {
@@ -62,7 +55,7 @@
     }
 
   /* Menu ambony */
-    header {
+  header {
       width: 100vw;
       height: 10vh;
       display: flex;
@@ -71,12 +64,12 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-      color: #ffffff;
-      width: 95vw;
-      padding: 2vh 0 0 2vw;
+      color: #fff;
+      width: 100vw;
+	  padding: 2vh 0;
     }
     header .container-menu hr {
-      width: 91vw;
+      width: 98vw;
       height: 0.05vw;
       background-color: #fff;
       border: none;
@@ -86,7 +79,7 @@
     header .container-menu .menu-bar {
       display: flex;
       justify-content: space-between;
-      width: 91vw;
+      width: 98vw;
       height: 5vh;
       padding: 0 1vw;
     }
@@ -97,7 +90,11 @@
       width: 12vw;
     }
     header .container-menu .menu-bar .title{
-      width: 40vw;      
+      display: flex;
+      align-items: center;
+      text-wrap: nowrap;
+      padding: 0 .5vw;
+      font-size: 1.1vw;
     }
 
     header .container-menu .menu-bar .menu .menu-sand {
@@ -127,14 +124,16 @@
 
     header .container-menu .menu-bar .container-user-info {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+	  gap: .5vw;
     }
     header .container-menu .menu-bar .container-user-info .user-info-name {
       font-size: 1.2vw;
       border: 0.1vw solid #fff;
-      padding: 0.5vh 5vw;
+      padding: 0.5vh 3vw;
       border-radius: 5vw;
+	  text-wrap: nowrap;
     }
 
     a{
@@ -156,22 +155,25 @@
     .form {
       margin:auto;
       margin-top:2vh;
-      width: 66vw;
+      width: 98vw;
       height: 85vh;
       background-color: #fff;
       border-radius: 1.5vw;
       overflow: hidden;
-      clip-path: polygon(0 0, 15% 0, 20% 9%, 95% 9%, 100% 14%, 100% 100%, 0 100%);
+      padding: 2vh 1vw;
     }
 
     .containerInput {
-      margin:auto;
-      width: 90%;
-      height: 73%;
+      width: 96vw;
+      height: 74vh;
       border: 1px solid #000;
-      margin-top: 15vh;
       border-radius: 1vw;
       padding: 2vh;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
     }
 
     .input,.checkbox,button {
@@ -193,11 +195,12 @@
     .input label {
       position: absolute;
       font-size: 1vw;
-      top: -1.6vh;
+      top: -1vh;
       left: 1.5vw;
       background-color: #fff;
       padding: 0 0.3vw;
     }
+
 
     input[type="checkbox"]{
       border-radius: 10px;
@@ -215,19 +218,26 @@
       justify-content:space-around;
     }
 
+    .flexEt {
+      width: 94vw;
+    }
+
+
     .contents {
-      height: 39vh;
-      max-height: 39vh;
+      height: 50vh;
+      max-height: 50vh;
       overflow-y: auto;
       overflow-x: hidden;
+      padding-right: .5vw;
+      margin-right: -.5vw;
     }
 
     .ajoutc {
       border: none;
-      margin-bottom: .8vh;
       padding: 0;
       height: 3vh;
       font-size: 1vw;
+      min-width: 10vw;
     }
 
     .generate {
@@ -236,38 +246,64 @@
     }
 
     .containerECUE {
-      width: 59.4vw;
+      width: 94vw;
       display: flex;
       flex-direction: column;
     }
 
     .profGrp {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       margin-left: 1vw;
     }
+
+    .jour {
+      width: 12vw;
+      height: 5.5vh;
+      border-radius: 4vw;
+      background: none;
+      margin-top: 2vh;
+      border: 1px solid #000;
+      padding: 0 .5vw;
+      font-size: .8vw;
+    }
+    
+    .title {
+      font-size: 1vw;
+    }
+
+    #debug-icon {
+		display: none;
+	}
 
 </style>
 </head>
   <body>
-    <header>
+  <?php if(isset($error)){ ?>
+    <script>alert("<?= $error ?>")</script>
+  <?php } ?>
+
+  <header>
       <section class="container-menu">
           <div class="menu-bar">
             <div class="menu">
               <!-- <button class="menu-sand"><i class="fa fa-bars"></i></button> -->
-              <p>User_connecte</p>
+              <p>
+		<?php 
+                  if($data['statut'] == 1){
+                    echo "Mr/Mme: " . $data['nom'];
+                  } else {
+                    echo "Etudiant: " . $data['prenom'];
+                  }
+                ?>
+              </p>
             </div>
             <div class="title"><h1>Ajouter une Unite d'Enseignement</h1></div>
             <div class="container-user-info">
-                <div class="user-info-name">
-				          <a href="<?php echo base_url('/') ?>">Lister</a>
-                </div>
-                <div class="user-info-name">
-				          <a href="<?php echo base_url('Back/form_recap') ?>">Recapitulation</a>
-                </div>
-		        	  <div class="user-info-name">
-                  <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Ajouter un prof</a>
-                </div>			  
+                <a href="<?php echo base_url('/') ?>" class="user-info-name">Lister</a>
+                <a href="<?php echo base_url('Back/form_recap') ?>" class="user-info-name">Recapitulation</a>
+                <a href="<?php echo base_url('ProfController/form_prof') ?>" class="user-info-name">Professeurs</a>
+                <a href="<?php echo base_url('UserController/deconnexion') ?>" class="user-info-name">Deconnexion</a>
             </div>
           </div>
         <hr />
@@ -279,7 +315,7 @@
       </section>  
     </header>
 
-    <form class="form" action="/index.php/Back/insert" method="post"  onSubmit="return confirmer();">
+    <form class="form" action="/index.php/Back/insert" method="post">
       <div class="containerInput">
         <div class="flex"><div class="input">
           <label for="level">Niveau</label>
@@ -300,14 +336,15 @@
       </div>
       <div class="input">
         <label for="name0">Nom de l'U.E</label>
-        <input type="text" name="name0" id="name0" />
+        <input type="text" name="name0" id="name0" required/>
       </div>
       <div>
         <div class="checkbox">
           <input type="checkbox" name="que" id="que" />
-          <label for="que">Q.U.E</label>
+          <label for="que">E.C.U.E</label>
         </div>
-      </div></div>
+      </div>
+    </div>
 
       <div class="isnotque">
         <div class="flex">
@@ -321,42 +358,58 @@
           </div>
           <div class="input">
             <label for="credit0">Credit</label>
-            <input type="number" name="credit0" id="credit0" />
+            <input type="number" name="credit0" id="credit0" min="1" />
+          </div>
+          <select name="jour0" id="jour0" class="jour">
+              <option value="1">Lundi</option>
+              <option value="2">Mardi</option>
+              <option value="3">Mercredi</option>
+              <option value="4">Jeudi</option>
+              <option value="5">Vendredi</option>
+              <option value="6">Samedi</option>
+          </select>
+          <div class="input horaire">
+            <label for="heure_edt_debut0">Heure debut :</label>
+            <input type="time" id="heure_edt_debut0" name="heure_edt_debut0" placeholder="08:00" class="begin">
+          </div>
+          <div class="input horaire">
+            <label for="heure_edt_fin0">Heure fin:</label>
+            <input type="time" id="heure_edt_fin0" name="heure_edt_fin0" placeholder="17:00" class="end">
           </div>
           <div class="containerCheckbox1">
             <div class="checkbox ajoutc">
-              <input type="checkbox" id="ED0" name="ED0" class="Checkbox ueCheck">
+              <input type="checkbox" id="ED0" name="ED0" class="Checkbox ueCheck" >
               <label for="ED0">Ajouter ED</label>
             </div>
             <div class="checkbox ajoutc">
-              <input type="checkbox" id="EP0" name="EP0" class="Checkbox ueCheck">
+              <input type="checkbox" id="EP0" name="EP0" class="Checkbox ueCheck" >
               <label for="EP0">Ajouter EP</label>
             </div>
           </div>
-        </div>
+        </div> 
+
       </div>
       <div class="container">
-        <div class="isque" style="display: none">
+         <div class="isque" style="display: none">
           <div class="flex">
             <div class="input">
-              <label for="number">Nombre de Q.U.E</label>
-              <input type="number" name="number" id="number" />
+              <label for="number">Nombre de E.C.U.E</label>
+              <input type="number" name="number" id="number" min="1" max="4" />
+		<input type="text" name="din" id="din" style="display:none"/>
             </div>
             <button class="generate">Generer</button>
           </div>
-          <div class="contents"></div>
-        </div>
+          <div class="contents" id="generena"></div>
+        </div> 
       </div>
     </div>
     <div class="input"><input type="submit" value="Enregistrez" /></div>
     </form>
-    <script src="index.js"></script>
-  </body>
 
   <!-- Script -->
 <script>
-  
-  
+
+
   const que = document.querySelector("#que");
   const isque = document.querySelector(".isque");
   const isnotque = document.querySelector(".isnotque");
@@ -365,13 +418,107 @@
   const contents = document.querySelector(".contents");
   const level = document.querySelector("#level");
   const semester = document.querySelector("#semester");
+  const begin = document.querySelector(".begin");
+  const end = document.querySelector(".end");
+  const professor = document.querySelector("#prof0");
+  const day = document.querySelector("#jour0");
+
+  const din=document.getElementById("din");
+
+  let dataFiltered = [];
+  let isTime= [];
+  let isFreeTime = [];
   
+  const timeToFloat = (time) => {
+    return time != "" ? parseInt(time.split(":")[0]) * 60 + parseInt(time.split(":")[1]) : 0;
+  }
+  
+  const testFreeTime = async (num) => {
+    const data = await getSchedule();
+    const jour = document.querySelector("#jour"+num).value;
+    const prof = document.querySelector("#prof"+num).value;
+    dataFiltered = data.filter((e) => {
+        return e.jour == jour && e.prof == prof;
+      });
+    console.log(data, dataFiltered);
+  }
+
+
+  professor.addEventListener("change", async () => {
+    const data = await getSchedule();
+    dataFiltered = data.filter((e) => {
+        return e.prof == professor.value;
+      });
+    console.log(data, dataFiltered);
+  });
+
+  day.addEventListener("change", async () => {
+    const data = await getSchedule();
+    dataFiltered = data.filter((e) => {
+        return e.jour == day.value;
+      });
+    console.log(data, dataFiltered);
+  });
+  
+  begin.addEventListener("change", () => {
+    const num = begin.getAttribute('id')[begin.getAttribute('id').length-1];
+    const beginValue = timeToFloat(begin.value);
+    const endValue = timeToFloat(document.querySelector("#heure_edt_fin"+num).value);
+    console.log("debut");
+    if(beginValue>=endValue&&endValue!=0) {
+      isTime.push(end.name);
+      // console.log("eto=>");
+      // console.log(isTime);
+    }
+    else if(beginValue<endValue&&endValue!=0) {
+      for (let i = 0;i< isTime.length; i++){
+        if(isTime[i]===end.name){isTime.pop(i);i--;}
+      }
+      // console.log("eto=>");
+      // console.log(isTime);
+    }
+    testFreeTime(num);
+  })
+
+  end.addEventListener("change", () => {
+    const num = end.getAttribute('id')[end.getAttribute('id').length-1];
+    const endValue = timeToFloat(end.value);
+    const beginValue = timeToFloat(document.querySelector("#heure_edt_debut"+num).value);
+    // console.log("fin",beginValue,endValue,beginValue>endValue&&endValue!=0);
+    if(beginValue>=endValue&&endValue!=0) {
+      isTime.push(end.name);
+      // console.log("eto=>");
+      // console.log(isTime);
+    }
+    else if(beginValue<endValue&&endValue!=0) {
+      for (let i = 0;i< isTime.length; i++){
+        if(isTime[i]===end.name){isTime.pop(i);i--;};
+      }
+      // console.log("\neto=>");
+      // console.log(isTime);
+    }
+    testFreeTime(num);
+  })
+
+  document.querySelector(".form").addEventListener("submit", (e) => {
+    const res = confirm("Voulez-vous vraiment ajouter cette UE?");
+      if(res) {
+        if(isTime.length!=0) { 
+          e.preventDefault();
+          alert("Horaire non validé");
+          console.log(isTime);
+        }
+      }
+      else {
+        e.preventDefault();
+      }
+  });
+
   const ueCheck = document.querySelectorAll(".ueCheck");
   ueCheck.forEach((e) => {
     e.addEventListener("change", async () => {
       const grpNumber = await getGroupNumber();
       const id = e.getAttribute("id")
-      console.log(grpNumber);
       if (e.checked) {
         isnotque.appendChild(createEInputs(id, grpNumber));
       }
@@ -381,10 +528,7 @@
       }
     });
   })
-
-  function confirmer(){
-      return confirm("Voulez-vous vraiment ajouter cette UE?");
-  }
+ 
 
   const options = (n) => {
     const option = document.createElement("option");
@@ -425,8 +569,43 @@
   });
 
   que.addEventListener("change", () => {
-    isque.style.display = que.checked ? "block" : "none";
-    isnotque.style.display = que.checked ? "none" : "block";
+    if(que.checked){
+/*
+      console.log("Checked");
+      isque.style.display = "block";
+      isque.innerHTML="<div class='flex'><div class='input'><label for='number'>Nombre de E.C.U.E</label><input type='number' name='number' id='number' min='1' max='4' required/></div><button class='generate'>Generer</button></div><div class='contents'></div></div>";
+      isnotque.innerHTML="";    
+*/
+      document.getElementById("credit0").removeAttribute("required");
+      document.getElementById("heure_edt_debut0").removeAttribute("required");
+      document.getElementById("heure_edt_fin0").removeAttribute("required");
+
+      document.getElementById("number").setAttribute("required","");
+	din.setAttribute("required","");
+
+      isque.style.display = "block";
+      isnotque.style.display = "none";
+    }
+    else{
+/*
+      console.log("Not checked");
+      isque.style.display = "none";
+      isnotque.innerHTML="<div class='flex'><div class='input'><label for='prof0'>Nom du Prof.</label><select name='prof0' id='prof0'><?php foreach($prof as $p){?><option value='<?=$p["id"]?>'><?=$p["nomProf"]?> <?=$p["prenomProf"]?> </option><?php } ?></select></div><div class='input'><label for='credit0'>Credit</label><input type='number' name='credit0' id='credit0' min='1' required/></div><select name='jour0' id='jour0' class='jour'><option value='1'>Lundi</option><option value='2'>Mardi</option><option value='3'>Mercredi</option><option value='4'>Jeudi</option><option value='5'>Vendredi</option><option value='6'>Samedi</option><option value='7'>Dimanche</option></select><div class='input horaire'><label for='heure_edt_debut0'>Horaire debut:</label><input type='time' id='heure_edt_debut0' name='heure_edt_debut0' placeholder='08:00' class='begin' required></div><div class='input horaire'><label for='heure_edt_fin0'>Horaire fin:</label><input type='time' id='heure_edt_fin0' name='heure_edt_fin0' placeholder='17:00' class='end' required></div><div class='containerCheckbox1'><div class='checkbox ajoutc'><input type='checkbox' id='ED0' name='ED0' class='Checkbox ueCheck'><label for='ED0'>Ajouter ED</label></div><div class='checkbox ajoutc'><input type='checkbox' id='EP0' name='EP0' class='Checkbox ueCheck'><label for='EP0'>Ajouter EP</label></div></div></div>";
+      isque.innerHTML="";
+*/      
+      document.getElementById("credit0").setAttribute("required","");
+      document.getElementById("heure_edt_debut0").setAttribute("required","");
+      document.getElementById("heure_edt_fin0").setAttribute("required","");
+
+      document.getElementById("generena").innerHTML="";
+      document.getElementById("number").value=null;
+      document.getElementById("number").removeAttribute("required");
+
+	din.removeAttribute("required");
+
+      isque.style.display = "none";
+      isnotque.style.display = "block";
+    }
   });
 
   genarate.addEventListener("click", (e) => {
@@ -440,8 +619,9 @@
     }
     const ED = document.querySelectorAll(".Checkbox");
     ED.forEach((e) => {
-      e.addEventListener("change", () => {
-        const id = e.getAttribute("id")
+      e.addEventListener("change", async () => {
+        const id = e.getAttribute("id");
+	      const grpNumber = await getGroupNumber();
         const ndiv = document.querySelector(".containerECUE"+ id.split(/[A-Z]/)[2]);
         if (e.checked) {
           ndiv.appendChild(createEInputs(id, grpNumber));
@@ -454,31 +634,87 @@
     })
   });
 
-
-
   const createEInputs = (n, m) => {
     const div = document.createElement("div");
     div.classList.add("container" + n);
     div.classList.add("profGrp");
     for(let j = 1; j <= m ; j++) {
-      const div_input = document.createElement("div");
-      const select = document.createElement("select");
-      const label = document.createElement("label");
-      div_input.setAttribute('class','input');
-      label.setAttribute("for", "prof" + n + "G" + j);
-      select.setAttribute("name", "prof" + n + "G" + j);
-      label.innerText = "Nom du Prof. " + n + "G" + j;
-      select.innerHTML="";
-      <?php foreach($prof as $p){?>
-          select.innerHTML+="<option value='<?=$p['id']?>'><?=$p['nomProf']?> <?=$p['prenomProf']?> </option>";
-      <?php } ?>
-      // console.log("id="+n);
-      // input.setAttribute("type", "text");
-      // input.setAttribute("id", "prof" + n + "G" + j);
-      // input.setAttribute("name", "prof" + n + "G" + j);
-      div_input.appendChild(label);
-      div_input.appendChild(select);
-      div.appendChild(div_input);      
+      for (let i = 1; i < 5; i++) {
+        const div_input = document.createElement("div");
+        const select = document.createElement("select");
+        const input = document.createElement("input");
+        const label = document.createElement("label");
+        div_input.setAttribute('class','input');
+        switch(i) {
+          case 1:
+            label.setAttribute("for", "prof" + n + "G" + j);
+            label.innerText = "Nom du Prof. " + n + "G" + j;
+            const profs = document.querySelector("#prof0");
+            select.setAttribute("id", "prof" + n + "G" + j);
+            select.setAttribute("name", "prof" + n + "G" + j);
+            select.innerHTML = profs.innerHTML;
+            break;
+          case 2:
+            label.setAttribute("for", "jour" + n + "G" + j);
+            label.innerText = "Jour";
+            const jours = document.querySelector("#jour0");
+            select.setAttribute("id", "jour" + n + "G" + j);
+            select.setAttribute("name", "jour" + n + "G" + j);
+            select.innerHTML = jours.innerHTML;
+            break;
+          case 3:
+            label.setAttribute("for", "heure_edt_debut" + n + "G" + j);
+            label.innerText = "Heure debut :";
+            input.setAttribute("type", "time");
+            input.setAttribute("required","");
+            input.setAttribute("id", "heure_edt_debut" + n + "G" + j);
+            input.setAttribute("name", "heure_edt_debut" + n + "G" + j);
+            input.addEventListener("change", () => {
+              const beginValue = timeToFloat(input.value);
+              const endValue = timeToFloat(document.querySelector("#heure_edt_fin" + n + "G" + j).value);
+              if(beginValue>=endValue&&endValue!=0) {
+                  isTime.push(end.name);
+                  // console.log("eto=>");
+                  // console.log(isTime);
+                }
+              else if(beginValue<endValue&&endValue!=0) {
+                for (let i = 0;i< isTime.length; i++){
+                  if(isTime[i]===end.name){isTime.pop(i);i--;}
+                }
+                // console.log("eto=>");
+                // console.log(isTime);
+              }
+            });
+            break;
+          case 4:
+            label.setAttribute("for", "heure_edt_fin" + n + "G" + j);
+            label.innerText = "Heure fin:";
+            input.setAttribute("type", "time");
+            input.setAttribute("id", "heure_edt_fin" + n + "G" + j);
+            input.setAttribute("required","");
+            input.setAttribute("name", "heure_edt_fin" + n + "G" + j);
+            input.addEventListener("change", () => {
+              const endValue = timeToFloat(input.value);
+              const beginValue = timeToFloat(document.querySelector("#heure_edt_debut" + n + "G" + j).value);
+              if(beginValue>=endValue&&endValue!=0) {
+                isTime.push(end.name);
+                // console.log("eto=>");
+                // console.log(isTime);
+              }
+              else if(beginValue<endValue&&endValue!=0) {
+                for (let i = 0;i< isTime.length; i++){
+                  if(isTime[i]===end.name){isTime.pop(i);i--;}
+                }
+                // console.log("eto=>");
+                // console.log(isTime);
+              }
+            });
+            break;
+        }
+        div_input.appendChild(label);
+        select.innerHTML != "" ? div_input.appendChild(select) : div_input.appendChild(input);
+        div.appendChild(div_input);    
+      }
     }
     return div;
   };
@@ -489,8 +725,9 @@
     divECUE.classList.add("containerECUE" + n);
     divECUE.classList.add("containerECUE");
     div.classList.add("container" + n);
-    div.classList.add("flex");    
-    for (let i = 1; i < 5; i++) {
+    div.classList.add("flex"); 
+    div.classList.add("flexEt"); 
+    for (let i = 1; i < 8; i++) {
       const div_input = document.createElement("div");
       const input = document.createElement("input");
       const label = document.createElement("label");
@@ -502,14 +739,15 @@
       switch (i) {
         case 1:
           label.setAttribute("for", "name" + n);
-          label.innerText = "Nom Q.U.E n:" + n;
+          label.innerText = "E.C.U.E n:" + n;
           input.setAttribute("type", "text");
+          input.setAttribute("required","");
           input.setAttribute("id", "name" + n);
           input.setAttribute("name", "name" + n);
           break;
         case 2:
           label.setAttribute("for", "prof" + n);
-          label.innerText = "Nom du Prof. n:" + n;
+          label.innerText = "Prof. n:" + n;
           const profs = document.querySelector("#prof0");
           select.setAttribute("id", "prof" + n);
           select.setAttribute("name", "prof" + n);
@@ -517,12 +755,69 @@
           break;
         case 3:
           label.setAttribute("for", "credit" + n);
-          label.innerText = "Valeur du credit n:" + n;
+          label.innerText = "Credit n:" + n;
           input.setAttribute("type", "number");
+          input.setAttribute("min", "1");
+          input.setAttribute("required","");
           input.setAttribute("id", "credit" + n);
           input.setAttribute("name", "credit" + n);
           break;
         case 4:
+          label.setAttribute("for", "jour" + n);
+          label.innerText = "Jour";
+          const jours = document.querySelector("#jour0");
+          select.setAttribute("id", "jour" + n);
+          select.setAttribute("name", "jour" + n);
+          select.innerHTML = jours.innerHTML;
+          break;
+        case 5:
+          label.setAttribute("for", "heure_edt_debut" + n);
+          label.innerText = "Heure debut :";
+          input.setAttribute("type", "time");
+          input.setAttribute("required","");
+          input.setAttribute("id", "heure_edt_debut" + n);
+          input.setAttribute("name", "heure_edt_debut" + n);
+          input.addEventListener("change", () => {
+            const beginValue = timeToFloat(input.value);
+            const endValue = timeToFloat(document.querySelector("#heure_edt_fin" + n).value);
+            if(beginValue>=endValue&&endValue!=0) {
+              isTime.push(end.name);
+              // console.log("eto=>");
+              // console.log(isTime);
+            }
+            else if(beginValue<endValue&&endValue!=0) {
+              for (let i = 0;i< isTime.length; i++){
+                if(isTime[i]===end.name){isTime.pop(i);i--;}
+              }
+              // console.log("eto=>");
+              // console.log(isTime);
+            }
+          });
+          break;
+        case 6:
+          label.setAttribute("for", "heure_edt_fin" + n);
+          label.innerText = "Heure fin:";
+          input.setAttribute("type", "time");
+          input.setAttribute("id", "heure_edt_fin" + n);
+          input.setAttribute("name", "heure_edt_fin" + n);
+          input.addEventListener("change", () => {
+            const endValue = timeToFloat(input.value);
+            const beginValue = timeToFloat(document.querySelector("#heure_edt_debut" + n).value);
+            if(beginValue>=endValue&&endValue!=0) {
+              isTime.push(end.name);
+              // console.log("eto=>");
+              // console.log(isTime);
+            }
+            else if(beginValue<endValue&&endValue!=0) {
+              for (let i = 0;i< isTime.length; i++){
+                if(isTime[i]===end.name){isTime.pop(i);i--;}
+              }
+              // console.log("eto=>");
+              // console.log(isTime);
+            }
+          });
+          break;
+        case 7:
           const checkbox0 = document.createElement("div");
           const input0 = document.createElement("input");
           const label0 = document.createElement("label");
@@ -563,11 +858,32 @@
     return divECUE;
   };
 
+  const levelConverter = (id) => {
+    let levelConverted = "";
+    switch(id) {
+      case "1": levelConverted = "L1"; break;
+      case "2": levelConverted = "L2"; break;
+      case "3": levelConverted = "L3"; break;
+      case "4": levelConverted = "M1"; break;
+      case "5": levelConverted = "M2"; break;
+    }
+
+    return levelConverted;
+  }
+
+	// getSchedule();
+
+  async function getSchedule() {
+    const schedule = await postData("<?php echo base_url('/index.php/Back/filterEdt') ?>");
+    // console.log(schedule[levelConverter(level.value)]["S"+semester.value]);
+ 	  return schedule[levelConverter(level.value)]["S"+semester.value];
+  }
 
   async function getGroupNumber() {
-    const grpnum = await postData("<?php echo base_url('Back/nEtudiant') ?>");
-    // return grpnum.[level.value];
-    return grpnum.num;
+    const grpnum = await postData("<?php echo base_url('/index.php/Back/nEtudiant') ?>");
+     console.log(grpnum,level.value);
+	// return grpnum[level.value];
+   return 2;
   }
 
   async function postData(url="", donnee={}) {
@@ -596,5 +912,5 @@
 		return data;
   }
 </script>
-
+</body>
 </html>

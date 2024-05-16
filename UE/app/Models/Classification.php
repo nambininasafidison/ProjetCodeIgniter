@@ -16,9 +16,24 @@ class Classification extends Model
 		'credit',
 		'prof',
 		'enseignement',
-		'groupe'
+		'groupe',
+		'heure_edt_debut',
+		'heure_edt_fin',
+		'jour'
 	];
+	public function edt($condition){
+		$data=array();
+		$data = $this	->select('Classification.id,Professeur.nomProf,Professeur.prenomProf,Classification.heure_edt_debut,Classification.heure_edt_fin,Classification.jour')
+										->join('Niveau','Classification.niveau = Niveau.id','inner')
+										->join('Semestre','Classification.semestre = Semestre.id','inner')
+										->join('Enseignement','Classification.enseignement = Enseignement.id','inner')					
+										->join('Professeur','Classification.prof = Professeur.id','inner')
+										->where($condition)
+										->findAll();
+		return $data;
+	}
 
+	
 	public function divide($condition){
 		$data=array();
 		$tmp			=  $this		->select('UE.nomUe, UE.id as id_ue')
@@ -35,21 +50,21 @@ class Classification extends Model
 			$condition["UE.nomUe"]=$ue["nomUe"];
 			$data[$i][]=$ue["id_ue"];
 			$data[$i][]=$ue["nomUe"];
-			$data[$i][] = $this	->select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf,Enseignement.type,Classification.groupe')
+			$data[$i][] = $this	->select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf,Enseignement.type,Classification.groupe, Classification.heure_edt_debut,Classification.heure_edt_fin,jour.day as jour')
 										->join('Niveau','Classification.niveau = Niveau.id','inner')
 										->join('Semestre','Classification.semestre = Semestre.id','inner')
-										->	join('Enseignement','Classification.enseignement = Enseignement.id','inner')					
+										->join('Enseignement','Classification.enseignement = Enseignement.id','inner')					
 										->join('Professeur','Classification.prof = Professeur.id','inner')
+										->join('jour','Classification.jour = jour.id','inner')
 										->join('UE','Classification.ue = UE.id','inner')
 										->join('ECUE','Classification.ecue = ECUE.id','inner')
 										->distinct()
 										->where($condition)
-										->findAll();					
+										->findAll();
 			$i++;
 		}
 		return $data;
 	}
-
 	public function divideWhere($condition,$like){
 
 		$data=array();
@@ -57,6 +72,7 @@ class Classification extends Model
 										->join('Niveau','Classification.niveau = Niveau.id','inner')
 										->join('Semestre','Classification.semestre = Semestre.id','inner')
 										->join('Professeur','Classification.prof = Professeur.id','inner')
+										->join('jour','Classification.jour = jour.id','inner')
 										->join('UE','Classification.ue = UE.id','inner')
 										->join('ECUE','Classification.ecue = ECUE.id','inner')
 										->distinct()
@@ -69,11 +85,12 @@ class Classification extends Model
 			$data[$i][]=$ue["id_ue"];
 			$data[$i][]=$ue["nomUe"];
 
-			$this	->	select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf,Enseignement.type,Classification.groupe')
+			$this		->select('Classification.id,ECUE.nomECUE,Classification.heure,Classification.credit,Professeur.nomProf,Professeur.prenomProf,Enseignement.type,Classification.groupe, Classification.heure_edt_debut,Classification.heure_edt_fin,jour.day as jour')
 					->	join('Niveau','Classification.niveau = Niveau.id','inner')
 					->	join('Semestre','Classification.semestre = Semestre.id','inner')
 					->	join('Professeur','Classification.prof = Professeur.id','inner')
 					->	join('Enseignement','Classification.enseignement = Enseignement.id','inner')					
+					->	join('jour','Classification.jour = jour.id','inner')
 					->	join('UE','Classification.ue = UE.id','inner')
 					->	join('ECUE','Classification.ecue = ECUE.id','inner')
 					->	distinct();

@@ -26,7 +26,6 @@
 
     body {
       width: 100vw;
-      height: 100vh;
       background-color: #190306;
       overflow-x: hidden;
       z-index: 0;
@@ -66,7 +65,7 @@
     }
 
   /* Menu ambony */
-    header {
+  header {
       width: 100vw;
       height: 10vh;
       display: flex;
@@ -75,12 +74,12 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-      color: #ffffff;
-      width: 95vw;
-      padding: 2vh 0 0 2vw;
+      color: #fff;
+      width: 100vw;
+	  padding: 2vh 0;
     }
     header .container-menu hr {
-      width: 91vw;
+      width: 98vw;
       height: 0.05vw;
       background-color: #fff;
       border: none;
@@ -90,7 +89,7 @@
     header .container-menu .menu-bar {
       display: flex;
       justify-content: space-between;
-      width: 91vw;
+      width: 98vw;
       height: 5vh;
       padding: 0 1vw;
     }
@@ -101,7 +100,11 @@
       width: 12vw;
     }
     header .container-menu .menu-bar .title{
-      width: 40vw;      
+      display: flex;
+      align-items: center;
+      text-wrap: nowrap;
+      padding: 0 .5vw;
+      font-size: 1.1vw;
     }
 
     header .container-menu .menu-bar .menu .menu-sand {
@@ -131,14 +134,16 @@
 
     header .container-menu .menu-bar .container-user-info {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+	  gap: .5vw;
     }
     header .container-menu .menu-bar .container-user-info .user-info-name {
       font-size: 1.2vw;
       border: 0.1vw solid #fff;
       padding: 0.5vh 3vw;
       border-radius: 5vw;
+	  text-wrap: nowrap;
     }
 
     a{
@@ -192,7 +197,7 @@
       margin:auto;
       background-color:#bbb;
     }
-    
+
     .flex{
       display:flex;
       justify-content:space-around;
@@ -211,95 +216,87 @@
 	  }
 
   /* Liste */
-	  .form {
-		margin:auto;
-		margin-top:2vh;
-		padding: 6vw;
-		padding-bottom:4vw;
-		width: 66vw;
-		height: 40vh;
-		background-color: #fff;
-		border-radius: 1.5vw;
-		overflow: hidden;
-		clip-path: polygon(0 0, 10% 0, 20% 9%, 95% 9%, 100% 14%, 100% 100%, 0 100%);
-	  }
 
-    .tab_to_pdf{
-      width:90vw;
-      background-color:#fff;
-      margin: 0 5vw;
-      margin-top:5vh;
-      padding:5vw 2vw;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-    }
+  .tab_to_pdf{
+    width:98vw;
+    background-color:#fff;
+    margin: 2vh 1vw;
+    padding: 2vh 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
 
-    .tab_to_pdf table{
-        width:80vw;
-      }
+  .tab_to_pdf table{
+    width: 100%;
+  }
 
-    table, p{
-      margin:auto;
-      text-align:center;
-    }
-
-    .titre_recherche{
-      font-size:3vw;
-      border:1px solid black;
-      margin:3vw;
-      padding:1vw;
-      text-align:center;
-    }
-
-
-    @media print {
-      header, .flex , hr{
-        display: none;
-      }
-      body{
-        background-color:#fff;
-      }
-      .tab_to_pdf{
-        width:100vw;
-        padding: 0;
-        margin: 0;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-      }
-
-      .tab_to_pdf table,#prof_info{
-        width: 100vw;
-        margin: 0;
-        padding: 0;
-        border:.2px;
-      }
-    }
-
-    #debug-icon {
+  .titre_recherche{
+    font-size:3vw;
+    border: 1px solid black;
+    margin-bottom:  3vh;
+    padding:1vw;
+    text-align:center;
+  }
+  
+  .titre_niveau{
+    font-size:2vw;
+    border:1px solid black;
+    margin: 3vh 0;
+    padding: 1vh 0;
+    text-align:center;
+  }
+  
+  @media print {
+    header, .flex , hr{
       display: none;
     }
-
-    #prof_au_choix, #none{
-      position:absolute;
-      top:65%;
-      left:25%;
-      margin:auto;
-      padding:5vw;
-      width:50vw;
-      height:50 vh;
-      background-color:#190306;
-      border-radius:10px;
-      border:2px solid white;
-      box-shadow:0px 0px 1000000000px #fff;
-      color:#fff;      
-      display:flex;
-      flex-direction:column;
+    body{
+      background-color:#fff;
     }
-    #none{
-      top:50%;
+    .tab_to_pdf{
+      width:100vw;
+      padding: 0;
+      margin: 0;
     }
+    
+    .tab_to_pdf table,#prof_info{
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+      border:.2px;
+    }
+  }
+  
+  #prof_au_choix, #none{
+    padding: 5vw;
+    width: 50vw;
+    background-color: #190306;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+    
+  .containerNone, .containerProf {
+    position: fixed;
+    top: 30vh;
+    background: #f001;
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 70vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    padding: 2vh 0;
+  }
 
     #prof_au_choix form{
       display:flex;
@@ -307,8 +304,11 @@
     }
 
     #prof_au_choix p{
-      margin:auto;
       padding-bottom:3vw;
+    }
+    
+    p {
+      font-size: 1.1vw;
     }
 
     .submit{
@@ -319,14 +319,33 @@
     #prof_au_choix form table{
       margin-bottom:3vw;
       width:100%;
+      border: none;
     }
-    td{
+
+    td,th{
       text-align: center;
-      margin:3vw;
+      font-size: 1.1vw;
     }
-    th{
-      margin:3vw;
+
+    #prof_au_choix form table{
+      text-align: start;
     }
+
+
+    .title{
+      font-size: 1vw;
+    }
+
+    #show-content-table{
+    	border-collapse:collapse;
+      max-width: 100%;
+      border: 1px solid black;
+      height: 2vh;
+    }
+
+    #debug-icon {
+		display: none;
+	}
 
 </style>
 </head>
@@ -336,19 +355,23 @@
           <div class="menu-bar">
             <div class="menu">
               <!-- <button class="menu-sand"><i class="fa fa-bars"></i></button> -->
-              <p>User_connecte</p>
+              <p>
+		<?php 
+                  if($data['statut'] == 1){
+                    echo "Mr/Mme: " . $data['nom'];
+                  } else {
+                    echo "Etudiant: " . $data['prenom'];
+                  }
+                ?>
+              </p>
             </div>
             <div class="title"><h1>Toutes les Unites d'Enseignements</h1></div>
             <div class="container-user-info">
-                <div class="user-info-name">
-			        <a href="<?php echo base_url('Back/form') ?>">Ajouter une UE</a>
-                </div>
-                <div class="user-info-name">
-                    <a href="<?php echo base_url('/') ?>" class="btn btn-primary">Lister</a>
-                </div>
-                <div class="user-info-name">
-                    <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Professeurs</a>
-                </div>
+              <a href="<?php echo base_url('/') ?>" class="user-info-name">Lister</a>
+		<a href="<?php echo base_url('Back/form') ?>" class="user-info-name">Ajouter une UE</a>
+              <a href="<?php echo base_url('ProfController/form_prof') ?>" class="user-info-name">Professeurs</a>
+              <a href="<?php echo base_url('Back/schedule') ?>" class="user-info-name">EDT</a>
+              <a href="<?php echo base_url('UserController/deconnexion') ?>" class="user-info-name">Deconnexion</a>
             </div>
           </div>
         <hr />
@@ -361,23 +384,24 @@
     </header>
     <section>
       <!-- Message none -->
-      <section id="none" style="display:none;">      
+    <div class="containerNone">
+      <section id="none">      
         <p>Aucun resultat.</p>
         <button id="dacc">OK</button>
       </section>
-    </section>
-    <section id="prof_au_choix" style="display:none;">
-      <p>Resultat pour: <b id="pour"></b></p>
-      <FORM action="<?php echo base_url('Back/form_recap') ?>" method="POST">          
-        <input type="text" name="field" id="new_field" value="Professeur" style="display:none;"/>
-        <table border="1">
-          <tbody id="recherche_prof">
-
-          </tbody>
-        </table>  
-        <p><input type="submit" class="submit" value="Envoyer"/></p>
-      </form>
-    </section>
+    </div>
+    <div class="containerProf">
+      <section id="prof_au_choix">
+        <p>Resultat pour: <b id="pour"></b></p>
+        <FORM action="<?php echo base_url('Back/form_recap') ?>" method="POST">          
+          <input type="hidden" name="field" id="new_field" value="Professeur"/>
+          <table>
+            <tbody id="recherche_prof"></tbody>
+          </table>  
+          <input type="submit" class="submit" value="Envoyer"/>
+        </form>
+      </section>
+    </div>
 <!--  -->
 	<div class="flex">
   <FORM action="<?php echo base_url('Back/form_recap')?>" method="POST" id="check">
@@ -396,9 +420,9 @@
     </div>
     <div class="input"><INPUT type="submit" value="Filter"></div>
 </FORM>
-		<a href="<?php echo base_url('/') ?>"><button>All</button></a>
+
         <!-- <a href="<?php //echo base_url('Back/toPdf') ?>"><button>To PDF</button></a> -->
-        <button class="topdf">To PDF</button>
+        <button class="topdf">Exporter en PDF</button>
     </div>
 	<hr>
 
@@ -460,9 +484,6 @@
             </tr>
 
 		</table>
-        <br>
-        <br>
-
         <table cellpadding="3px" cellspacing="0px" border="1px" width="100%" height="">
             <tr>
                 <th rowspan="2">
@@ -500,7 +521,7 @@
       <?php
         $somme=0;
       ?>            
-    <?php foreach($liste as $s){?>
+    <?php foreach($liste as $s){ if(($s["Groupe"]==0))$s["Groupe"]="Tous";   ?>
             <tr>
                 <td><?=$s["Niveau"]?></td>
                 <td><?=$s["Semestre"]?></td>
@@ -524,11 +545,6 @@
 
             </tr>
         </table>
-
-        <br>
-        <br>
-        <br>
-
         <p>Arrêtée la présente déclaration à………heures d’enseignements effectuées dont :	</p>
         <p>……….heures de ET ……heures de ED et …0….heure de EP</p>
         <table cellspacing="0px" border=".2px" width="100%">
@@ -600,7 +616,7 @@
       <?php
         $somme=0;
       ?>                        
-    <?php foreach($liste as $s){?>
+    <?php foreach($liste as $s){ if(($s["Groupe"]==0))$s["Groupe"]="Tous";  ?>
             <tr>
                 <td><?=$s["Niveau"]?></td>
                 <td><?=$s["Semestre"]?></td>
@@ -625,10 +641,6 @@
 
             </tr>
         </table>
-
-        <br>
-        <br>
-        <br>
         <div>
           <p>Arrêtée la présente déclaration à . . . . . . . . heures d’enseignements effectuées dont :	</p>
           <p> . . . . . . heures de ET . . . . . . heures de ED et . . . 0 . . . . heure de EP</p>
@@ -658,39 +670,7 @@
     <!-- Les scripts -->
 
 <script>
-/*
-  document.getElementById("ch").addEventListener("submit",function(event){
-    const field = document.getElementById("field");
-    const to_search = document.getElementById("to_search");
-    const list = dodument.getElementById("recherche_prof");
-    list.innerHTML="";
-    alert("atooo");
-    console.log("ato");
-/*
-    if(field.value == "Professeur"){
-      const data = await postData("<?php echo base_url('Back/lesProf') ?>/ALL/"+to_search.value);
-      
-      if(data.length>1){
-        document.getElementById("pour").innerHTML=to_search.value;
-        document.getElementById("new_to_search").value=to_search.value;
-        for(let i=0;i<data.length;i++){
-          list.innerHTML+="<tr><input type='checkbox' name='to_search' value='"+data[i]["nomProf"]+"'"+data[i]["nomProf"]+"</td><td>"+data[i]["prenomProf"]+"</td></tr>";
-        }
-        ducument.getElementById("prof_au_choix").innerHTML+="Selectionner votre choix.";
-        ducument.getElementById("prof_au_choix").style.display="block";
-        return false;
-      }
-      else{
-        return true;
-      }
-    }
-    else{
-      return true;
-    }
-/
-    event.preventDefault();
-  });
-*/
+
   document.getElementById("check").addEventListener("submit", async function(event) {
     const field = document.getElementById("field");
     const to_search = document.getElementById("inpSearch");
@@ -699,27 +679,29 @@
       event.preventDefault();
       const data = await postData("<?php echo base_url('Back/lesProf') ?>/ALL/"+to_search.value);
       if(data.length>0){
-        document.getElementById("prof_au_choix").style.display = "block";
+        document.querySelector(".containerNone").style.display="none";
+        document.querySelector(".containerProf").style.display = "flex";
         const list = document.getElementById("recherche_prof");
-        list.innerHTML = ""; // Assurez-vous de réinitialiser l'innerHTML avant d'ajouter du contenu
+        list.innerHTML = "";
         document.getElementById("pour").innerHTML = to_search.value;
         for(let i = 0; i < data.length; i++){
-            list.innerHTML += "<tr><td><input type='checkbox' name='to_search' value='" + data[i]["CIN"] + "'/></td><td>" + data[i]["nomProf"]+" "+data[i]["prenomProf"] + "</td></tr>";
+            list.innerHTML += "<tr><td><input type='radio' name='to_search' value='" + data[i]["CIN"] + "'/></td><td>" + data[i]["nomProf"]+" "+data[i]["prenomProf"] + "</td></tr>";
         }
-        document.getElementById("prof_au_choix").innerHTML += "<p>Selectionner votre choix.</p>";
       }
       else{
-        document.getElementById("none").style.display="block";
+        document.querySelector(".containerProf").style.display="none";
+        document.querySelector(".containerNone").style.display= "flex";
         console.log("attt");
       }
     }
   });
   
-  document.getElementById("dacc").addEventListener("click",()=>{document.getElementById("none").style.display="none";});
+  document.getElementById("dacc").addEventListener("click",() => { document.querySelector(".containerNone").style.display="none"; });
   const topdf = document.querySelector(".topdf");
 
   topdf.addEventListener("click", () => {
-    window.print();
+	if (document.getElementById("none").style.display != "block" &&
+          document.getElementById("form_tsotra").style.display == "block")      window.print();
   });
 
   //Confirmer
@@ -761,8 +743,8 @@
     console.log(data);
     $infoProf = document.getElementById("prof_info");
     var vacat;
-    if(data[0].vacataire==0)vacat="Non"
-    else vacat="Oui"
+    if(data[0].vacataire==0)vacat="Permanant"
+    else vacat="Vacataire"
     document.getElementById("nom_prof").innerHTML="Nom :"+data[0].nomProf;    
     document.getElementById("prenom_prof").innerHTML="Prénoms : "+data[0].prenomProf;    
     document.getElementById("grade_prof").innerHTML="Grade: "+data[0].grade; 
@@ -780,7 +762,7 @@
       echo "document.getElementById('form_tsotra').style.display='none';";
       echo "document.getElementById('prof_info').style.display='none';";      
     }
-    else if(isset($liste)&&(count($liste)==0)) echo "document.getElementById(\"none\").style.display='block'";
+    else if(isset($liste)&&(count($liste)==0)) echo "document.querySelector('.containerNone').style.display= 'flex';";
     else{
 
       if(isset($id_prof)){
