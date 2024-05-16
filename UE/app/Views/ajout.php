@@ -55,7 +55,7 @@
     }
 
   /* Menu ambony */
-    header {
+  header {
       width: 100vw;
       height: 10vh;
       display: flex;
@@ -64,12 +64,12 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-      color: #ffffff;
-      width: 95vw;
-      padding: 2vh 0 0 2vw;
+      color: #fff;
+      width: 100vw;
+	  padding: 2vh 0;
     }
     header .container-menu hr {
-      width: 91vw;
+      width: 98vw;
       height: 0.05vw;
       background-color: #fff;
       border: none;
@@ -79,7 +79,7 @@
     header .container-menu .menu-bar {
       display: flex;
       justify-content: space-between;
-      width: 91vw;
+      width: 98vw;
       height: 5vh;
       padding: 0 1vw;
     }
@@ -90,7 +90,11 @@
       width: 12vw;
     }
     header .container-menu .menu-bar .title{
-      width: 40vw;      
+      display: flex;
+      align-items: center;
+      text-wrap: nowrap;
+      padding: 0 .5vw;
+      font-size: 1.1vw;
     }
 
     header .container-menu .menu-bar .menu .menu-sand {
@@ -120,14 +124,16 @@
 
     header .container-menu .menu-bar .container-user-info {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+	  gap: .5vw;
     }
     header .container-menu .menu-bar .container-user-info .user-info-name {
       font-size: 1.2vw;
       border: 0.1vw solid #fff;
-      padding: 0.5vh 5vw;
+      padding: 0.5vh 3vw;
       border-radius: 5vw;
+	  text-wrap: nowrap;
     }
 
     a{
@@ -149,20 +155,18 @@
     .form {
       margin:auto;
       margin-top:2vh;
-      width: 95vw;
+      width: 98vw;
       height: 85vh;
       background-color: #fff;
       border-radius: 1.5vw;
       overflow: hidden;
-      clip-path: polygon(0 0, 15% 0, 20% 9%, 95% 9%, 100% 14%, 100% 100%, 0 100%);
+      padding: 2vh 1vw;
     }
 
     .containerInput {
-      margin:auto;
-      width: 90%;
-      height: 73%;
+      width: 96vw;
+      height: 74vh;
       border: 1px solid #000;
-      margin-top: 15vh;
       border-radius: 1vw;
       padding: 2vh;
     }
@@ -215,13 +219,13 @@
     }
 
     .flexEt {
-      width: 84vw;
+      width: 94vw;
     }
 
 
     .contents {
-      height: 39vh;
-      max-height: 39vh;
+      height: 50vh;
+      max-height: 50vh;
       overflow-y: auto;
       overflow-x: hidden;
       padding-right: .5vw;
@@ -242,7 +246,7 @@
     }
 
     .containerECUE {
-      width: 59.4vw;
+      width: 94vw;
       display: flex;
       flex-direction: column;
     }
@@ -268,6 +272,10 @@
       font-size: 1vw;
     }
 
+    #debug-icon {
+		display: none;
+	}
+
 </style>
 </head>
   <body>
@@ -280,26 +288,22 @@
           <div class="menu-bar">
             <div class="menu">
               <!-- <button class="menu-sand"><i class="fa fa-bars"></i></button> -->
-	<?php
-		if($data['statut']==1){
-			echo "Mr/Mme ".$data["prenom"]." ".$data["nom"];
-		}
-		else{
-			echo "Mpianatra: ".$data["prenom"];
-		}
-	?>
+              <p>
+		<?php 
+                  if($data['statut'] == 1){
+                    echo "Mr/Mme: " . $data['nom'];
+                  } else {
+                    echo "Etudiant: " . $data['prenom'];
+                  }
+                ?>
+              </p>
             </div>
             <div class="title"><h1>Ajouter une Unite d'Enseignement</h1></div>
             <div class="container-user-info">
-                <div class="user-info-name">
-				          <a href="<?php echo base_url('/') ?>">Lister</a>
-                </div>
-                <div class="user-info-name">
-				          <a href="<?php echo base_url('Back/form_recap') ?>">Recapitulation</a>
-                </div>
-		        	  <div class="user-info-name">
-                  <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Ajouter un prof</a>
-                </div>			  
+                <a href="<?php echo base_url('/') ?>" class="user-info-name">Lister</a>
+                <a href="<?php echo base_url('Back/form_recap') ?>" class="user-info-name">Recapitulation</a>
+                <a href="<?php echo base_url('ProfController/form_prof') ?>" class="user-info-name">Professeurs</a>
+                <a href="<?php echo base_url('UserController/deconnexion') ?>" class="user-info-name">Deconnexion</a>
             </div>
           </div>
         <hr />
@@ -354,7 +358,7 @@
           </div>
           <div class="input">
             <label for="credit0">Credit</label>
-            <input type="number" name="credit0" id="credit0" min="1" max="30" />
+            <input type="number" name="credit0" id="credit0" min="1" />
           </div>
           <select name="jour0" id="jour0" class="jour">
               <option value="1">Lundi</option>
@@ -365,11 +369,11 @@
               <option value="6">Samedi</option>
           </select>
           <div class="input horaire">
-            <label for="heure_edt_debut0">Horaire debut:</label>
+            <label for="heure_edt_debut0">Heure debut :</label>
             <input type="time" id="heure_edt_debut0" name="heure_edt_debut0" placeholder="08:00" class="begin">
           </div>
           <div class="input horaire">
-            <label for="heure_edt_fin0">Horaire fin:</label>
+            <label for="heure_edt_fin0">Heure fin:</label>
             <input type="time" id="heure_edt_fin0" name="heure_edt_fin0" placeholder="17:00" class="end">
           </div>
           <div class="containerCheckbox1">
@@ -391,6 +395,7 @@
             <div class="input">
               <label for="number">Nombre de E.C.U.E</label>
               <input type="number" name="number" id="number" min="1" max="4" />
+		<input type="text" name="din" id="din" style="display:none"/>
             </div>
             <button class="generate">Generer</button>
           </div>
@@ -417,6 +422,9 @@
   const end = document.querySelector(".end");
   const professor = document.querySelector("#prof0");
   const day = document.querySelector("#jour0");
+
+  const din=document.getElementById("din");
+
   let dataFiltered = [];
   let isTime= [];
   let isFreeTime = [];
@@ -459,15 +467,15 @@
     console.log("debut");
     if(beginValue>=endValue&&endValue!=0) {
       isTime.push(end.name);
-      console.log("eto=>");
-      console.log(isTime);
+      // console.log("eto=>");
+      // console.log(isTime);
     }
     else if(beginValue<endValue&&endValue!=0) {
       for (let i = 0;i< isTime.length; i++){
         if(isTime[i]===end.name){isTime.pop(i);i--;}
       }
-      console.log("eto=>");
-      console.log(isTime);
+      // console.log("eto=>");
+      // console.log(isTime);
     }
     testFreeTime(num);
   })
@@ -479,15 +487,15 @@
     // console.log("fin",beginValue,endValue,beginValue>endValue&&endValue!=0);
     if(beginValue>=endValue&&endValue!=0) {
       isTime.push(end.name);
-      console.log("eto=>");
-      console.log(isTime);
+      // console.log("eto=>");
+      // console.log(isTime);
     }
     else if(beginValue<endValue&&endValue!=0) {
       for (let i = 0;i< isTime.length; i++){
         if(isTime[i]===end.name){isTime.pop(i);i--;};
       }
-      console.log("\neto=>");
-      console.log(isTime);
+      // console.log("\neto=>");
+      // console.log(isTime);
     }
     testFreeTime(num);
   })
@@ -573,6 +581,7 @@
       document.getElementById("heure_edt_fin0").removeAttribute("required");
 
       document.getElementById("number").setAttribute("required","");
+	din.setAttribute("required","");
 
       isque.style.display = "block";
       isnotque.style.display = "none";
@@ -591,7 +600,9 @@
       document.getElementById("generena").innerHTML="";
       document.getElementById("number").value=null;
       document.getElementById("number").removeAttribute("required");
-      
+
+	din.removeAttribute("required");
+
       isque.style.display = "none";
       isnotque.style.display = "block";
     }
@@ -606,7 +617,6 @@
         contents.appendChild(createQueInputs(i + 1));
       }
     }
-	else if(n==O)alert("Entrer le nombre de ECUE à générer");
     const ED = document.querySelectorAll(".Checkbox");
     ED.forEach((e) => {
       e.addEventListener("change", async () => {
@@ -654,7 +664,7 @@
             break;
           case 3:
             label.setAttribute("for", "heure_edt_debut" + n + "G" + j);
-            label.innerText = "Debut";
+            label.innerText = "Heure debut :";
             input.setAttribute("type", "time");
             input.setAttribute("required","");
             input.setAttribute("id", "heure_edt_debut" + n + "G" + j);
@@ -664,21 +674,21 @@
               const endValue = timeToFloat(document.querySelector("#heure_edt_fin" + n + "G" + j).value);
               if(beginValue>=endValue&&endValue!=0) {
                   isTime.push(end.name);
-                  console.log("eto=>");
-                  console.log(isTime);
+                  // console.log("eto=>");
+                  // console.log(isTime);
                 }
               else if(beginValue<endValue&&endValue!=0) {
                 for (let i = 0;i< isTime.length; i++){
                   if(isTime[i]===end.name){isTime.pop(i);i--;}
                 }
-                console.log("eto=>");
-                console.log(isTime);
+                // console.log("eto=>");
+                // console.log(isTime);
               }
             });
             break;
           case 4:
             label.setAttribute("for", "heure_edt_fin" + n + "G" + j);
-            label.innerText = "Fin";
+            label.innerText = "Heure fin:";
             input.setAttribute("type", "time");
             input.setAttribute("id", "heure_edt_fin" + n + "G" + j);
             input.setAttribute("required","");
@@ -688,15 +698,15 @@
               const beginValue = timeToFloat(document.querySelector("#heure_edt_debut" + n + "G" + j).value);
               if(beginValue>=endValue&&endValue!=0) {
                 isTime.push(end.name);
-                console.log("eto=>");
-                console.log(isTime);
+                // console.log("eto=>");
+                // console.log(isTime);
               }
               else if(beginValue<endValue&&endValue!=0) {
                 for (let i = 0;i< isTime.length; i++){
                   if(isTime[i]===end.name){isTime.pop(i);i--;}
                 }
-                console.log("eto=>");
-                console.log(isTime);
+                // console.log("eto=>");
+                // console.log(isTime);
               }
             });
             break;
@@ -748,7 +758,6 @@
           label.innerText = "Credit n:" + n;
           input.setAttribute("type", "number");
           input.setAttribute("min", "1");
-          input.setAttribute("max", "30");
           input.setAttribute("required","");
           input.setAttribute("id", "credit" + n);
           input.setAttribute("name", "credit" + n);
@@ -763,7 +772,7 @@
           break;
         case 5:
           label.setAttribute("for", "heure_edt_debut" + n);
-          label.innerText = "Debut";
+          label.innerText = "Heure debut :";
           input.setAttribute("type", "time");
           input.setAttribute("required","");
           input.setAttribute("id", "heure_edt_debut" + n);
@@ -773,21 +782,21 @@
             const endValue = timeToFloat(document.querySelector("#heure_edt_fin" + n).value);
             if(beginValue>=endValue&&endValue!=0) {
               isTime.push(end.name);
-              console.log("eto=>");
-              console.log(isTime);
+              // console.log("eto=>");
+              // console.log(isTime);
             }
             else if(beginValue<endValue&&endValue!=0) {
               for (let i = 0;i< isTime.length; i++){
                 if(isTime[i]===end.name){isTime.pop(i);i--;}
               }
-              console.log("eto=>");
-              console.log(isTime);
+              // console.log("eto=>");
+              // console.log(isTime);
             }
           });
           break;
         case 6:
           label.setAttribute("for", "heure_edt_fin" + n);
-          label.innerText = "Fin";
+          label.innerText = "Heure fin:";
           input.setAttribute("type", "time");
           input.setAttribute("id", "heure_edt_fin" + n);
           input.setAttribute("name", "heure_edt_fin" + n);
@@ -796,15 +805,15 @@
             const beginValue = timeToFloat(document.querySelector("#heure_edt_debut" + n).value);
             if(beginValue>=endValue&&endValue!=0) {
               isTime.push(end.name);
-              console.log("eto=>");
-              console.log(isTime);
+              // console.log("eto=>");
+              // console.log(isTime);
             }
             else if(beginValue<endValue&&endValue!=0) {
               for (let i = 0;i< isTime.length; i++){
                 if(isTime[i]===end.name){isTime.pop(i);i--;}
               }
-              console.log("eto=>");
-              console.log(isTime);
+              // console.log("eto=>");
+              // console.log(isTime);
             }
           });
           break;
@@ -873,8 +882,8 @@
   async function getGroupNumber() {
     const grpnum = await postData("<?php echo base_url('/index.php/Back/nEtudiant') ?>");
      console.log(grpnum,level.value);
-	return grpnum[level.value];
-//    return 2;
+	// return grpnum[level.value];
+   return 2;
   }
 
   async function postData(url="", donnee={}) {

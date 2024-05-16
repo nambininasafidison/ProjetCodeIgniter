@@ -19,14 +19,14 @@ class Back extends BaseController
 	public function testConnexion() { 
 		$s = new ConnexionService();
 
-/*		$data = [
+		$data = [
             'id' => 1,
             'nom' => "Filamatra",
             'prenom' => "Tahiry",
             'mot_de_passe' => "12345678",
             'statut' => 1
-          ];*/
-		$data = $s->testConnexion();
+          ];
+		// $data = $s->testConnexion();
 		return $data;
 	}
 
@@ -474,14 +474,14 @@ class Back extends BaseController
 
 		//Get number
 
-			$niv = $niveau ->where("id",$this->request->getVar("level"))->findAll();
-			$condition=[
-				"grade" => $niv[0]["nomNiveau"][0],
-				"niveau" => $niv[0]["nomNiveau"][1]
-			];
-			$count= $etudiants->getTotal($condition);
+			// $niv = $niveau ->where("id",$this->request->getVar("level"))->findAll();
+			// $condition=[
+			// 	"grade" => $niv[0]["nomNiveau"][0],
+			// 	"niveau" => $niv[0]["nomNiveau"][1]
+			// ];
+			// $count= $etudiants->getTotal($condition);
 
-//		$count=2;
+		$count=2;
 		//get UE and ECUE inputs
 		$data_UE=[
 			'nomUe' => $this->request->getVar("name0"),

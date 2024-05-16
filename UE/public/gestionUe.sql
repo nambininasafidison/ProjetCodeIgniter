@@ -314,32 +314,5 @@ BEGIN
 END;
 //
 
--- Determiner la limite de heure_debut et heure_fin
-DROP TRIGGER IF EXISTS check_hour_difference_insert_trigger //
-CREATE TRIGGER check_hour_difference_insert_trigger
-BEFORE INSERT ON Classification
-FOR EACH ROW
-BEGIN
-  IF (
-    (NEW.heure_edt_fin-NEW.heure_edt_debut<time("01:00"))
-  )THEN
-  SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Heure doit depasser de 1h de difference';
-  END IF;
-END;
-//
-
-DROP TRIGGER IF EXISTS check_hour_difference_update_trigger //
-CREATE TRIGGER check_hour_difference_update_trigger
-BEFORE UPDATE ON Classification
-FOR EACH ROW
-BEGIN
-  IF (
-    (NEW.heure_edt_fin-NEW.heure_edt_debut<time("01:00"))
-  )THEN
-  SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Heure doit depasser de 1h de difference';
-  END IF;
-END;
-//
-
--- Resaka required @ input: ilay generated: --manisy input display none anaty isque, --rehefa checked=set required, -- rehefa generated/notChecked=remove required
+-- Ne pas chevaucher les heures de ET et ED/EP
 DELIMITER ;

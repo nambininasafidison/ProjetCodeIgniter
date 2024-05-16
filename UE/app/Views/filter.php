@@ -62,7 +62,7 @@
     }
 
   /* Menu ambony */
-    header {
+  header {
       width: 100vw;
       height: 10vh;
       display: flex;
@@ -71,12 +71,12 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-      color: #ffffff;
-      width: 95vw;
-      padding: 2vh 0 0 2vw;
+      color: #fff;
+      width: 100vw;
+	  padding: 2vh 0;
     }
     header .container-menu hr {
-      width: 91vw;
+      width: 98vw;
       height: 0.05vw;
       background-color: #fff;
       border: none;
@@ -86,7 +86,7 @@
     header .container-menu .menu-bar {
       display: flex;
       justify-content: space-between;
-      width: 91vw;
+      width: 98vw;
       height: 5vh;
       padding: 0 1vw;
     }
@@ -97,7 +97,11 @@
       width: 12vw;
     }
     header .container-menu .menu-bar .title{
-      width: 40vw;      
+      display: flex;
+      align-items: center;
+      text-wrap: nowrap;
+      padding: 0 .5vw;
+      font-size: 1.1vw;
     }
 
     header .container-menu .menu-bar .menu .menu-sand {
@@ -127,14 +131,16 @@
 
     header .container-menu .menu-bar .container-user-info {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+	  gap: .5vw;
     }
     header .container-menu .menu-bar .container-user-info .user-info-name {
       font-size: 1.2vw;
       border: 0.1vw solid #fff;
       padding: 0.5vh 3vw;
       border-radius: 5vw;
+	  text-wrap: nowrap;
     }
 
     a{
@@ -153,7 +159,7 @@
       padding: 0 0.6vw;
     }
   /* Options */
-    .input,.checkbox,.del,button {
+  .input,.checkbox,.del,button {
       position: relative;
       height: 10vh;
       top: 2vh;
@@ -167,6 +173,10 @@
       background-color: #fff;
       padding: 1.25vh 1vw;
       font-size: 0.8vw;
+    }
+
+    td {
+      text-align: center;
     }
 
     .input label {
@@ -188,10 +198,6 @@
       margin:auto;
       background-color:#bbb;
     }
-
-   TD{
-	text-align:center;
-	}
     
     .flex{
       display:flex;
@@ -208,21 +214,39 @@
 
 	.del{
 		color:#000;
+		top: 0;
+		height: 4vh;
+		font-size: 1vw;
+		padding: .8vh 1vw;
 	}
 
   /* Liste */
 	.form {
 		margin:auto;
 		margin-top:2vh;
-		padding: 6vw;
-		padding-bottom:4vw;
-		width: 90vw;
-		height: 40vh;
+		padding: 2vh 1vw;
+		width: 98vw;
+		max-height: 69vh;
 		background-color: #fff;
 		border-radius: 1.5vw;
 		overflow: hidden;
-		clip-path: polygon(0 0, 10% 0, 20% 9%, 95% 9%, 100% 14%, 100% 100%, 0 100%);
+		font-size: 1.2vw;
 	}
+
+    .title{
+		font-size: 1vw;
+    }
+
+	#debug-icon {
+		display: none;
+	}
+
+	.options {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
 
 </style>
 </head>
@@ -232,32 +256,23 @@
           <div class="menu-bar">
             <div class="menu">
               <!-- <button class="menu-sand"><i class="fa fa-bars"></i></button> -->
-              <p><?php 
-                    if($data['statut'] == 1){
-                      echo "MR" . $data['nom'];
-                    } else {
-                      echo "Mpianatra" . $data['prenom'];
-                    }
+              <p>
+				        <?php 
+                  if($data['statut'] == 1){
+                    echo "Mr/Mme: " . $data['nom'];
+                  } else {
+                    echo "Etudiant: " . $data['prenom'];
+                  }
                 ?>
               </p>
             </div>
             <div class="title"><h1>Toutes les Unites d'Enseignements</h1></div>
             <div class="container-user-info">
-              <div class="user-info-name">
-      				  <a href="<?php echo base_url('Back/form') ?>">Ajouter une UE</a>
-              </div>
-              <div class="user-info-name">
-      				  <a href="<?php echo base_url('Back/form_recap') ?>">Recapitulation</a>
-              </div>
-              <div class="user-info-name">
-                <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Professeurs</a>
-              </div>
-              <div class="user-info-name">
-				          <a href="<?php echo base_url('Back/schedule') ?>">EDT</a>
-                </div>       
-                <div class="user-info-name">
-				          <a href="<?php echo base_url('UserController/deconnexion') ?>">Log Out</a>
-                </div>                                                                   
+              <a href="<?php echo base_url('Back/form') ?>" class="user-info-name">Ajouter une UE</a>
+              <a href="<?php echo base_url('Back/form_recap') ?>" class="user-info-name">Recapitulation</a>
+              <a href="<?php echo base_url('ProfController/form_prof') ?>" class="user-info-name">Professeurs</a>
+              <a href="<?php echo base_url('Back/schedule') ?>" class="user-info-name">EDT</a>
+              <a href="<?php echo base_url('UserController/deconnexion') ?>" class="user-info-name">Log Out</a>
             </div>
           </div>
         <hr />
@@ -495,7 +510,7 @@
           case 6:
 						const mod = document.createElement("button");
 						mod.innerText = "Modify";
-						
+						mod.setAttribute("class", "del");
 						mod.addEventListener('click', ()=>{
 							const form_content = document.querySelector("#form-modify");
 							
@@ -507,17 +522,29 @@
 								console.log(opt.innerHTML+" et "+element.nomProf+" "+element.prenomProf+"\n");
 							}
 
+							j = document.querySelectorAll("#jour option");
+							for(opt of j){
+								if(opt.innerHTML == element.jour){
+									opt.setAttribute("selected","");
+								}
+								console.log(opt.innerHTML+" et "+element.nomProf+" "+element.prenomProf+"\n");
+							}
+
 							document.getElementById("nameOfEcue").setAttribute('value',element.nomECUE);
 							document.getElementById("valueOfCredit").setAttribute('value',element.credit);
+							document.getElementById("heure_edt_debut0").setAttribute('value',element.heure_edt_debut);
+							document.getElementById("heure_edt_fin0").setAttribute('value',element.heure_edt_fin);
 							form_content.action = "<?php echo base_url('Back/update_ecue') ?>/"+element.id;
 							form_content.style.display = "block";
 						});
 						td.appendChild(mod);
 						const del = document.createElement("a");
 						del.setAttribute("href", "<?php echo base_url('Back/delete_ecue') ?>/"+element.id);
-						del.innerText = "Delete";
 						del.setAttribute("class", "del");
-                        td.appendChild(del);
+						del.setAttribute("onCLick","return confirm('Voulez-vous vraiment le supprimer?');");
+						del.innerText = "Delete";
+						td.appendChild(del);
+						td.classList.add("options");
 						break;
 				}
 				

@@ -75,12 +75,12 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-      color: #ffffff;
-      width: 95vw;
-      padding: 2vh 0 0 2vw;
+      color: #fff;
+      width: 100vw;
+	  padding: 2vh 0;
     }
     header .container-menu hr {
-      width: 91vw;
+      width: 98vw;
       height: 0.05vw;
       background-color: #fff;
       border: none;
@@ -90,7 +90,7 @@
     header .container-menu .menu-bar {
       display: flex;
       justify-content: space-between;
-      width: 91vw;
+      width: 98vw;
       height: 5vh;
       padding: 0 1vw;
     }
@@ -101,7 +101,11 @@
       width: 12vw;
     }
     header .container-menu .menu-bar .title{
-      width: 40vw;      
+      display: flex;
+	  align-items: center;
+	  text-wrap: nowrap;
+	  padding: 0 .5vw;
+	  font-size: 1.1vw;
     }
 
     header .container-menu .menu-bar .menu .menu-sand {
@@ -131,14 +135,16 @@
 
     header .container-menu .menu-bar .container-user-info {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+	  gap: .5vw;
     }
     header .container-menu .menu-bar .container-user-info .user-info-name {
       font-size: 1.2vw;
       border: 0.1vw solid #fff;
       padding: 0.5vh 3vw;
       border-radius: 5vw;
+	  text-wrap: nowrap;
     }
 
     a{
@@ -208,25 +214,38 @@
 
 	.del{
 		color:#000;
+		top: 0;
+		height: 4vh;
+		font-size: 1vw;
+		padding: .8vh 1vw;
 	}
 
   /* Liste */
 	.form {
 		margin:auto;
 		margin-top:2vh;
-		padding: 6vw;
-		padding-bottom:4vw;
-		width: 90vw;
-		height: 40vh;
+		padding: 2vh 1vw;
+		width: 98vw;
+		max-height: 69vh;
 		background-color: #fff;
 		border-radius: 1.5vw;
 		overflow: hidden;
-		clip-path: polygon(0 0, 10% 0, 20% 9%, 95% 9%, 100% 14%, 100% 100%, 0 100%);
+		font-size: 1.2vw;
 	}
 
     .title{
-	font-size: 1vw;
+		font-size: 1vw;
     }
+
+	#debug-icon {
+		display: none;
+	}
+
+	.options {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+	}
 
 </style>
 </head>
@@ -239,32 +258,23 @@
           <div class="menu-bar">
             <div class="menu">
               <!-- <button class="menu-sand"><i class="fa fa-bars"></i></button> -->
-              <p><?php 
+              <p>
+				<?php 
                     if($data['statut'] == 1){
-                      echo "Mr/Mme " . $data['nom'];
+                      echo "Mr/Mme: " . $data['nom'];
                     } else {
-                      echo "Mpianatra: " . $data['prenom'];
+                      echo "Etudiant: " . $data['prenom'];
                     }
                 ?>
               </p>
             </div>
             <div class="title"><h1>Toutes les Unites d'Enseignements</h1></div>
             <div class="container-user-info">
-              <div class="user-info-name">
-				  <a href="<?php echo base_url('Back/form') ?>">Ajouter une UE</a>
-              </div>
-              <div class="user-info-name">
-				  <a href="<?php echo base_url('Back/form_recap') ?>">Recapitulation</a>
-              </div>
-			  <div class="user-info-name">
-                <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Professeurs</a>
-              </div>			
-			  <div class="user-info-name">
-				<a href="<?php echo base_url('Back/schedule') ?>">EDT</a>
-              </div>   
-			  <div class="user-info-name">
-				          <a href="<?php echo base_url('UserController/deconnexion') ?>">Log Out</a>
-                </div>                                                           
+				<a href="<?php echo base_url('Back/form') ?>" class="user-info-name">Ajouter une UE</a>
+				<a href="<?php echo base_url('Back/form_recap') ?>" class="user-info-name">Recapitulation</a>
+                <a href="<?php echo base_url('ProfController/form_prof') ?>" class="user-info-name">Professeurs</a>
+				<a href="<?php echo base_url('Back/schedule') ?>" class="user-info-name">EDT</a>
+				<a href="<?php echo base_url('UserController/deconnexion') ?>" class="user-info-name">Deconnexion</a>
 			</div>
           </div>
         <hr />
@@ -299,27 +309,27 @@
 				<div class="input">
 					<label for="ue">UE</label>
 					<select name="ue" id="ue">
-						<option value="">none</option>
+						<option value="">rien</option>
 					</select>
 				</div>
-				<div class="input"><input type="submit" value="Delete Ue"/></div>
+				<div class="input"><input type="submit" value="Supprimer l'UE"/></div>
 			</FORM>
 			<FORM action="<?php echo base_url('Back/form_search') ?>" methode="POST">
 				<div class="input">
-					<label for="searched">Filter</label> 
+					<label for="searched">Filtrer</label> 
 					<input type="text" name="searched" required/>
 				</div>
-				<div class="input"><INPUT type="submit" value="Filter"></div>
+				<div class="input"><INPUT type="submit" value="Filtrer"></div>
 			</FORM>
-		<a href="<?php echo base_url('/') ?>/"><button>All</button></a>
+		<a href="<?php echo base_url('/') ?>/"><button>Tous</button></a>
 	</div>
 	<hr>
 
 	<form action="" method="post" id="form-modify" style="display: none;" onSubmit="return confirmer();">
 		<div class="flex">
-			<h4>Mod:</h4>
+			<h4>Modifier:</h4>
 			<div class="input">
-				<label for="nameOfEcue">Q.U.E</label>
+				<label for="nameOfEcue">E.C.U.E</label>
 				<input type="text" name="nameOfEcue" id="nameOfEcue" required>
 			</div>
 			<div class="input">        
@@ -346,11 +356,11 @@
 			  </div>
 
 			<div class="input">
-				<label for="heure_edt_debut0">De:</label>
+				<label for="heure_edt_debut0">Heure debut :</label>
 				<input type="time" id="heure_edt_debut0" name="heure_edt_debut0" placeholder="08:00" class="begin" required>
 			</div>
 			<div class="input">
-				<label for="heure_edt_fin0">A:</label>
+				<label for="heure_edt_fin0">Heure fin:</label>
 				<input type="time" id="heure_edt_fin0" name="heure_edt_fin0" placeholder="17:00" class="end" required>
 			</div>
 			<div class="input"><input type="submit" value="apply"></div>
@@ -475,7 +485,7 @@
 		if(s!="ue") {
 			const none = document.createElement("option");
 			none.value = "none";
-			none.innerText = "none";
+			none.innerText = "neant";
 			ueSelect.innerHTML = "";
 			ueSelect.appendChild(none);
 		}
@@ -518,13 +528,13 @@
 						td.innerHTML=element.type;
 						break;
 					case 5:
-						if(element.groupe==0)element.groupe="Tous";
+						if(element.groupe==null)element.groupe="--";
 						td.innerHTML=element.groupe;
 						break;
 					case 6:
 						const mod = document.createElement("button");
-						mod.innerText = "Modify";
-						
+						mod.innerText = "Modifier";
+						mod.setAttribute("class", "del");
 						mod.addEventListener('click', ()=>{
 							const form_content = document.querySelector("#form-modify");
 							
@@ -556,8 +566,9 @@
 						del.setAttribute("href", "<?php echo base_url('Back/delete_ecue') ?>/"+element.id);
 						del.setAttribute("class", "del");
 						del.setAttribute("onCLick","return confirm('Voulez-vous vraiment le supprimer?');");
-						del.innerText = "Delete";
+						del.innerText = "Supprimer";
 						td.appendChild(del);
+						td.classList.add("options");
 						break;
 				}
 				

@@ -62,9 +62,9 @@ class UserController extends BaseController {
     $mdp = $this->request->getJsonVar('password');
     $users = $this->usermodel->getInfo($nom, $prenom);
     $userStatus = $this->usermodel->hasAccount($nom, $prenom);
-    if(empty($userStatus)){ 
-      // echo json_encode(['status' => '  
-      // user not found', 'status_code' => 404]);
+    $status = $userStatus[0]['statut'];
+    if($status <= 0){ 
+      // echo json_encode(['status' => 'user not found', 'status_code' => 404]);
       return $this->response
                   ->setContentType('application/json')
                   ->setStatusCode(404)
@@ -78,8 +78,7 @@ class UserController extends BaseController {
                       ->setContentType('application/json')
                       ->setStatusCode(403)
                       ->setJSON(['status' => 'user already logged in']);
-        } else */
-        if($this->usermodel->connexion($user['nom'], $user['prenoms']) or $user['est_actif'] == 1) {
+        } else */if($this->usermodel->connexion($user['nom'], $user['prenoms']) || $user['est_actif'] == 1) {
           // echo json_encode(['status' => 'loggin successful', 'status_code' => 200]);
           
           $data = [
@@ -88,7 +87,7 @@ class UserController extends BaseController {
             'nom' => $user["nom"],
             'prenom' => $user["prenoms"],
             'mot_de_passe' => $user["mot_de_passe"],
-            'statut' => $userStatus[0]['statut']
+            'statut' => $status
           ];
           // if($user <= 0) return redirect()->route('/');
           $this->setSession($data);
@@ -105,7 +104,6 @@ class UserController extends BaseController {
                     ->setJSON(['status' => 'incorrect password']);
       }
     }
-    return view('500.html');
   }
   public function inscription() {
     $userdata = $this->request->getJSON(true);
