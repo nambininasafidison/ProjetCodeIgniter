@@ -328,6 +328,10 @@
       margin:3vw;
     }
 
+    .title{
+	font-size: 1vw;
+    }
+
 </style>
 </head>
 <body>
@@ -336,7 +340,14 @@
           <div class="menu-bar">
             <div class="menu">
               <!-- <button class="menu-sand"><i class="fa fa-bars"></i></button> -->
-              <p>User_connecte</p>
+              <p><?php 
+                    if($data['statut'] == 1){
+                      echo "MR" . $data['nom'];
+                    } else {
+                      echo "Mpianatra" . $data['prenom'];
+                    }
+                ?>
+              </p>
             </div>
             <div class="title"><h1>Toutes les Unites d'Enseignements</h1></div>
             <div class="container-user-info">
@@ -349,6 +360,12 @@
                 <div class="user-info-name">
                     <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Professeurs</a>
                 </div>
+                <div class="user-info-name">
+				          <a href="<?php echo base_url('Back/schedule') ?>">EDT</a>
+                </div>  
+                <div class="user-info-name">
+				          <a href="<?php echo base_url('UserController/deconnexion') ?>">Log Out</a>
+                </div>                                                                          
             </div>
           </div>
         <hr />
@@ -396,7 +413,7 @@
     </div>
     <div class="input"><INPUT type="submit" value="Filter"></div>
 </FORM>
-		<a href="<?php echo base_url('/') ?>"><button>All</button></a>
+
         <!-- <a href="<?php //echo base_url('Back/toPdf') ?>"><button>To PDF</button></a> -->
         <button class="topdf">To PDF</button>
     </div>
@@ -500,7 +517,7 @@
       <?php
         $somme=0;
       ?>            
-    <?php foreach($liste as $s){?>
+    <?php foreach($liste as $s){ if(($s["Groupe"]==0))$s["Groupe"]="Tous";   ?>
             <tr>
                 <td><?=$s["Niveau"]?></td>
                 <td><?=$s["Semestre"]?></td>
@@ -600,7 +617,7 @@
       <?php
         $somme=0;
       ?>                        
-    <?php foreach($liste as $s){?>
+    <?php foreach($liste as $s){ if(($s["Groupe"]==0))$s["Groupe"]="Tous";  ?>
             <tr>
                 <td><?=$s["Niveau"]?></td>
                 <td><?=$s["Semestre"]?></td>
@@ -704,7 +721,7 @@
         list.innerHTML = ""; // Assurez-vous de réinitialiser l'innerHTML avant d'ajouter du contenu
         document.getElementById("pour").innerHTML = to_search.value;
         for(let i = 0; i < data.length; i++){
-            list.innerHTML += "<tr><td><input type='checkbox' name='to_search' value='" + data[i]["CIN"] + "'/></td><td>" + data[i]["nomProf"]+" "+data[i]["prenomProf"] + "</td></tr>";
+            list.innerHTML += "<tr><td><input type='radio' name='to_search' value='" + data[i]["CIN"] + "'/></td><td>" + data[i]["nomProf"]+" "+data[i]["prenomProf"] + "</td></tr>";
         }
         document.getElementById("prof_au_choix").innerHTML += "<p>Selectionner votre choix.</p>";
       }
@@ -719,7 +736,8 @@
   const topdf = document.querySelector(".topdf");
 
   topdf.addEventListener("click", () => {
-    window.print();
+	if (document.getElementById("none").style.display != "block" &&
+          document.getElementById("form_tsotra").style.display == "block")      window.print();
   });
 
   //Confirmer
@@ -761,8 +779,8 @@
     console.log(data);
     $infoProf = document.getElementById("prof_info");
     var vacat;
-    if(data[0].vacataire==0)vacat="Non"
-    else vacat="Oui"
+    if(data[0].vacataire==0)vacat="Permanant"
+    else vacat="Vacataire"
     document.getElementById("nom_prof").innerHTML="Nom :"+data[0].nomProf;    
     document.getElementById("prenom_prof").innerHTML="Prénoms : "+data[0].prenomProf;    
     document.getElementById("grade_prof").innerHTML="Grade: "+data[0].grade; 

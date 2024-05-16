@@ -3,15 +3,35 @@
 namespace App\Controllers;
 use App\Models\Professeur;
 use App\Models\Grade;
+use App\Services\ConnexionService;
 
 class ProfController extends BaseController
 {
     public function form_prof(){
-        $model = new Grade();
-        $profMod = new Professeur();
-        $data["grades"] = $model->findAll();
-        $data["profs"] = $profMod->paginate(5);
-        $data["pager"] = $profMod->pager;
+	$s = new ConnexionService();
+/*
+    $data["data"] = [
+        'id' => 1,
+        'nom' => "Filamatra",
+        'prenom' => "Tahiry",
+        'mot_de_passe' => "12345678",
+        'statut' => 1
+      ];
+*/      
+    	$data["data"]=$s->testConnexion();
+	if($data["data"]==null){
+		$url = base_url("UserController/login");
+		return redirect()->to($url);
+	}
+	else{
+	        $model = new Grade();
+	        $profMod = new Professeur();
+	        $data["grades"] = $model->findAll();
+	        $data["profs"] = $profMod   ->select('Professeur.*, grade.nomGrade as nomGrade')
+                                        ->join('grade','Professeur.idGrade=grade.id','inner')
+                                        ->paginate(5);
+	        $data["pager"] = $profMod->pager;
+	}
         return view('form_prof' , $data);
     }
 
@@ -42,7 +62,37 @@ class ProfController extends BaseController
             "CIN" => $CIN,
         ];
 
-        $model->ignore(true)->insert($datas);
-        return redirect()->to('Back/index');
+        try{
+            $model->insert($datas);
+        }catch(\CodeIgniter\Database\Exceptions\DatabaseException $e){
+            $data["error"] = "Impossible de faire l'ajout: ".$e->getMessage();
+        }
+
+        $s = new ConnexionService();
+
+        $data["data"] = [
+            'id' => 1,
+            'nom' => "Filamatra",
+            'prenom' => "Tahiry",
+            'mot_de_passe' => "12345678",
+            'statut' => 1
+          ];
+          
+        //	$data["data"]=$s->testConnexion();
+        if($data["data"]==null){
+            $url = base_url("UserController/login");
+            return redirect()->to($url);
+        }
+        else{
+                $model = new Grade();
+                $profMod = new Professeur();
+                $data["grades"] = $model->findAll();
+                $data["profs"] = $profMod   ->select('Professeur.*, grade.nomGrade as nomGrade')
+                                            ->join('grade','Professeur.idGrade=grade.id','inner')
+                                            ->paginate(5);
+                $data["pager"] = $profMod->pager;
+        }
+            return view('form_prof' , $data);
+
     }
 }

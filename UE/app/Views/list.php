@@ -216,7 +216,7 @@
 		margin-top:2vh;
 		padding: 6vw;
 		padding-bottom:4vw;
-		width: 66vw;
+		width: 90vw;
 		height: 40vh;
 		background-color: #fff;
 		border-radius: 1.5vw;
@@ -224,15 +224,29 @@
 		clip-path: polygon(0 0, 10% 0, 20% 9%, 95% 9%, 100% 14%, 100% 100%, 0 100%);
 	}
 
+    .title{
+	font-size: 1vw;
+    }
+
 </style>
 </head>
 <body>
+	<?php if(isset($error)){ ?>
+    	<script>alert("<?= $error ?>")</script>
+  	<?php } ?>
 	<header>
       <section class="container-menu">
           <div class="menu-bar">
             <div class="menu">
               <!-- <button class="menu-sand"><i class="fa fa-bars"></i></button> -->
-              <p>User_connecte</p>
+              <p><?php 
+                    if($data['statut'] == 1){
+                      echo "Mr/Mme " . $data['nom'];
+                    } else {
+                      echo "Mpianatra: " . $data['prenom'];
+                    }
+                ?>
+              </p>
             </div>
             <div class="title"><h1>Toutes les Unites d'Enseignements</h1></div>
             <div class="container-user-info">
@@ -244,7 +258,13 @@
               </div>
 			  <div class="user-info-name">
                 <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Professeurs</a>
-              </div>			  
+              </div>			
+			  <div class="user-info-name">
+				<a href="<?php echo base_url('Back/schedule') ?>">EDT</a>
+              </div>   
+			  <div class="user-info-name">
+				          <a href="<?php echo base_url('UserController/deconnexion') ?>">Log Out</a>
+                </div>                                                           
 			</div>
           </div>
         <hr />
@@ -297,7 +317,7 @@
 
 	<form action="" method="post" id="form-modify" style="display: none;" onSubmit="return confirmer();">
 		<div class="flex">
-			<h3>Modifier:</h3>
+			<h4>Mod:</h4>
 			<div class="input">
 				<label for="nameOfEcue">Q.U.E</label>
 				<input type="text" name="nameOfEcue" id="nameOfEcue" required>
@@ -313,6 +333,25 @@
 			<div class="input">
 				<label for="valueOfCredit">Credit</label>
 				<input type="number" name="valueOfCredit" id="valueOfCredit" required>
+			</div>
+			<div class="input">
+				<select name="jour" id="jour" class="jour">
+					<option value="1">Lundi</option>
+					<option value="2">Mardi</option>
+					<option value="3">Mercredi</option>
+					<option value="4">Jeudi</option>
+					<option value="5">Vendredi</option>
+					<option value="6">Samedi</option>
+				</select>
+			  </div>
+
+			<div class="input">
+				<label for="heure_edt_debut0">De:</label>
+				<input type="time" id="heure_edt_debut0" name="heure_edt_debut0" placeholder="08:00" class="begin" required>
+			</div>
+			<div class="input">
+				<label for="heure_edt_fin0">A:</label>
+				<input type="time" id="heure_edt_fin0" name="heure_edt_fin0" placeholder="17:00" class="end" required>
 			</div>
 			<div class="input"><input type="submit" value="apply"></div>
 		</div>
@@ -479,7 +518,7 @@
 						td.innerHTML=element.type;
 						break;
 					case 5:
-						if(element.groupe==null)element.groupe="--";
+						if(element.groupe==0)element.groupe="Tous";
 						td.innerHTML=element.groupe;
 						break;
 					case 6:
@@ -497,8 +536,18 @@
 								console.log(opt.innerHTML+" et "+element.nomProf+" "+element.prenomProf+"\n");
 							}
 
+							j = document.querySelectorAll("#jour option");
+							for(opt of j){
+								if(opt.innerHTML == element.jour){
+									opt.setAttribute("selected","");
+								}
+								console.log(opt.innerHTML+" et "+element.nomProf+" "+element.prenomProf+"\n");
+							}
+
 							document.getElementById("nameOfEcue").setAttribute('value',element.nomECUE);
 							document.getElementById("valueOfCredit").setAttribute('value',element.credit);
+							document.getElementById("heure_edt_debut0").setAttribute('value',element.heure_edt_debut);
+							document.getElementById("heure_edt_fin0").setAttribute('value',element.heure_edt_fin);
 							form_content.action = "<?php echo base_url('Back/update_ecue') ?>/"+element.id;
 							form_content.style.display = "block";
 						});

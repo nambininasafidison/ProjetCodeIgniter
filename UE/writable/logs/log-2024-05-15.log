@@ -1,0 +1,439 @@
+INFO - 2024-05-15 04:38:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 04:39:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 04:43:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 04:49:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 04:49:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 04:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-15 05:01:45 --> mysqli_sql_exception: Duplicate entry '101222248222' for key 'Professeur.CIN' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:01:54 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:01:57 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:02:00 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:02:02 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:02:05 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:02:08 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+INFO - 2024-05-15 05:02:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-15 05:02:32 --> mysqli_sql_exception: Duplicate entry '101222248222' for key 'Professeur.CIN' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:02:35 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+INFO - 2024-05-15 05:02:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:02:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-15 05:02:38 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:02:41 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:02:44 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+INFO - 2024-05-15 05:03:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:03:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-15 05:03:59 --> mysqli_sql_exception: Duplicate entry '101222248222' for key 'Professeur.CIN' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+INFO - 2024-05-15 05:04:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:05:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:05:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:05:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:07:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:07:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-15 05:07:42 --> mysqli_sql_exception: INY in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/Back.php(548): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:07:42 --> mysqli_sql_exception: INY in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/Back.php(554): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:07:42 --> mysqli_sql_exception: Ce professeur n est plus libre en ce jour in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/Back.php(585): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+INFO - 2024-05-15 05:07:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-15 05:08:23 --> mysqli_sql_exception: INY in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/Back.php(548): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:08:23 --> mysqli_sql_exception: INY in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/Back.php(554): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:08:23 --> mysqli_sql_exception: Vous ne pouvez plus ajouter de UE. On atteint 30 credits pour ce semestre. in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/Back.php(585): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+INFO - 2024-05-15 05:08:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:08:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:09:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:10:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:11:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-15 05:12:50 --> mysqli_sql_exception: Duplicate entry '111111111111' for key 'Professeur.CIN' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:15:24 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+CRITICAL - 2024-05-15 05:15:24 --> ParseError: syntax error, unexpected token "=>", expecting "," or ";"
+[Method: GET, Route: ProfController/insert]
+in APPPATH/Views/form_prof.php on line 272.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/ProfController.php(95): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ERROR - 2024-05-15 05:15:47 --> mysqli_sql_exception: Column 'nomProf' cannot be null in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+ERROR - 2024-05-15 05:16:22 --> mysqli_sql_exception: Duplicate entry '111111111111' for key 'Professeur.CIN' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query()
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/UE/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/UE/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/UE/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#6 /var/www/UE/system/Model.php(791): CodeIgniter\BaseModel->insert()
+#7 /var/www/UE/app/Controllers/ProfController.php(66): CodeIgniter\Model->insert()
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\ProfController->insert()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 {main}
+INFO - 2024-05-15 05:21:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:22:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:25:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:26:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:35:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:37:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:40:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:40:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-15 05:41:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

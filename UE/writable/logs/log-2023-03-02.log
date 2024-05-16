@@ -1,0 +1,480 @@
+INFO - 2023-03-02 13:12:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 13:13:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 13:13:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-03-02 13:13:55 --> mysqli_sql_exception: Unknown column 'jour.day' in 'field list' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /var/www/UE/app/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/app/Controllers/Back.php(142): App\Models\Classification->divide(Array)
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->filter()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2023-03-02 13:13:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'jour.day' in 'field list'
+[Method: POST, Route: Back/filter]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2023-03-02 13:13:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'jour.day' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2023-03-02 13:13:55 --> [Caused by] mysqli_sql_exception: Unknown column 'jour.day' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2023-03-02 13:14:22 --> ErrorException: Undefined variable $data
+[Method: GET, Route: ProfController/form_prof]
+in APPPATH/Views/form_prof.php on line 271.
+ 1 APPPATH/Views/form_prof.php(271): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', '/var/www/UE/app/Views/form_prof.php', 271)
+ 2 SYSTEMPATH/View/View.php(234): include('/var/www/UE/app/Views/form_prof.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('form_prof', [], true)
+ 5 APPPATH/Controllers/ProfController.php(15): view('form_prof', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProfController->form_prof()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2023-03-02 13:14:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-03-02 13:14:56 --> mysqli_sql_exception: Unknown column 'jour.day' in 'field list' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /var/www/UE/app/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/app/Controllers/Back.php(142): App\Models\Classification->divide(Array)
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->filter()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2023-03-02 13:14:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'jour.day' in 'field list'
+[Method: POST, Route: Back/filter]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2023-03-02 13:14:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'jour.day' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2023-03-02 13:14:56 --> [Caused by] mysqli_sql_exception: Unknown column 'jour.day' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2023-03-02 13:15:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-03-02 13:16:00 --> mysqli_sql_exception: Unknown column 'jour.day' in 'field list' in /var/www/UE/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /var/www/UE/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT...', 0)
+#1 /var/www/UE/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT...')
+#2 /var/www/UE/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT...')
+#3 /var/www/UE/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT...', Array, false)
+#4 /var/www/UE/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/UE/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /var/www/UE/app/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+#7 /var/www/UE/app/Controllers/Back.php(142): App\Models\Classification->divide(Array)
+#8 /var/www/UE/system/CodeIgniter.php(933): App\Controllers\Back->filter()
+#9 /var/www/UE/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+#10 /var/www/UE/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/UE/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/UE/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/UE/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2023-03-02 13:16:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'jour.day' in 'field list'
+[Method: POST, Route: Back/filter]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2023-03-02 13:16:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'jour.day' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2023-03-02 13:16:00 --> [Caused by] mysqli_sql_exception: Unknown column 'jour.day' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = 1
+AND `Classification`.`semestre` = 1
+AND `UE`.`nomUe` = \'Mathematique\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT DISTINCT `Classification`.`id`, `ECUE`.`nomECUE`, `Classification`.`heure`, `Classification`.`credit`, `Professeur`.`nomProf`, `Professeur`.`prenomProf`, `Enseignement`.`type`, `Classification`.`groupe`, `Classification`.`heure_edt_debut`, `Classification`.`heure_edt_fin`, `jour`.`day` as `jour`
+FROM `Classification`
+INNER JOIN `Niveau` ON `Classification`.`niveau` = `Niveau`.`id`
+INNER JOIN `Semestre` ON `Classification`.`semestre` = `Semestre`.`id`
+INNER JOIN `Enseignement` ON `Classification`.`enseignement` = `Enseignement`.`id`
+INNER JOIN `Professeur` ON `Classification`.`prof` = `Professeur`.`id`
+INNER JOIN `UE` ON `Classification`.`ue` = `UE`.`id`
+INNER JOIN `ECUE` ON `Classification`.`ecue` = `ECUE`.`id`
+WHERE `Classification`.`niveau` = :Classification.niveau:
+AND `Classification`.`semestre` = :Classification.semestre:
+AND `UE`.`nomUe` = :UE.nomUe:', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/Classification.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Back.php(142): App\Models\Classification->divide([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Back->filter()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Back))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2023-03-02 13:17:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 13:18:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 13:19:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 13:21:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 13:21:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 13:22:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 13:43:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 13:48:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-02 13:57:47 --> ParseError: syntax error, unexpected identifier "session", expecting variable or "$"
+[Method: GET, Route: /]
+in APPPATH/Controllers/Back.php on line 36.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('/var/www/UE/app/Controllers/Back.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Back')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Back')
+ 4 SYSTEMPATH/CodeIgniter.php(887): class_exists('\\App\\Controllers\\Back', true)
+ 5 SYSTEMPATH/CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2023-03-02 14:01:39 --> ParseError: syntax error, unexpected identifier "session", expecting variable or "$"
+[Method: GET, Route: /]
+in APPPATH/Controllers/Back.php on line 36.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('/var/www/UE/app/Controllers/Back.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Back')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Back')
+ 4 SYSTEMPATH/CodeIgniter.php(887): class_exists('\\App\\Controllers\\Back', true)
+ 5 SYSTEMPATH/CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2023-03-02 14:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 14:06:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-02 14:09:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

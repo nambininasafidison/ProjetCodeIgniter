@@ -43,6 +43,7 @@ class Autoload extends AutoloadConfig
         APP_NAMESPACE => APPPATH,
 	'Models' => APPPATH.'Models',
 	'Librairies' => APPPATH.'Librairies',
+	'Services' => APPPATH.'Services',
     ];
 
     /**

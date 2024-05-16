@@ -216,7 +216,7 @@
 		margin-top:2vh;
 		padding: 6vw;
 		padding-bottom:4vw;
-		width: 66vw;
+		width: 90vw;
 		height: 40vh;
 		background-color: #fff;
 		border-radius: 1.5vw;
@@ -232,7 +232,14 @@
           <div class="menu-bar">
             <div class="menu">
               <!-- <button class="menu-sand"><i class="fa fa-bars"></i></button> -->
-              <p>User_connecte</p>
+              <p><?php 
+                    if($data['statut'] == 1){
+                      echo "MR" . $data['nom'];
+                    } else {
+                      echo "Mpianatra" . $data['prenom'];
+                    }
+                ?>
+              </p>
             </div>
             <div class="title"><h1>Toutes les Unites d'Enseignements</h1></div>
             <div class="container-user-info">
@@ -245,6 +252,12 @@
               <div class="user-info-name">
                 <a href="<?php echo base_url('ProfController/form_prof') ?>" class="btn btn-primary">Professeurs</a>
               </div>
+              <div class="user-info-name">
+				          <a href="<?php echo base_url('Back/schedule') ?>">EDT</a>
+                </div>       
+                <div class="user-info-name">
+				          <a href="<?php echo base_url('UserController/deconnexion') ?>">Log Out</a>
+                </div>                                                                   
             </div>
           </div>
         <hr />
@@ -464,7 +477,7 @@
 						td.innerHTML=element.nomECUE;
 						break;
 					case 1:
-						td.innerHTML=element.nomProf;
+						td.innerHTML=element.nomProf +" "+ element.prenomProf;
 						break;
 					case 2:
 						td.innerHTML=element.credit;

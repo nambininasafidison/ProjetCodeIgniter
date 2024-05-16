@@ -259,15 +259,31 @@
     td{
       text-align:center;
     }
+
+    .title{
+	font-size: 1vw;
+    }
 </style>
 </head>
   <body>
+	<?php
+		if(isset($error)){
+	?>
+	<script>alert("<?= $error ?>")</script>
+	<?php } ?>
     <header>
       <section class="container-menu">
           <div class="menu-bar">
             <div class="menu">
               <!-- <button class="menu-sand"><i class="fa fa-bars"></i></button> -->
-              <p>User_connecte</p>
+              <p><?php 
+                    if($data['statut'] == 1){
+                      echo "Mme/Mr " . $data['nom'];
+                    } else {
+                      echo "Mpianatra " . $data['prenom'];
+                    }
+                ?>
+              </p>
             </div>
             <div class="title"><h1>Ajouter une Unite d'Enseignement</h1></div>
             <div class="container-user-info">
@@ -280,6 +296,12 @@
               <div class="user-info-name">
                 <a href="<?php echo base_url('Back/form') ?>" class="btn btn-primary">Ajouter une UE</a>
               </div>
+              <div class="user-info-name">
+				          <a href="<?php echo base_url('Back/schedule') ?>">EDT</a>
+                </div> 
+                <div class="user-info-name">
+				          <a href="<?php echo base_url('UserController/deconnexion') ?>">Log Out</a>
+                </div>                                                                         
             </div>
           </div>
         <hr />
@@ -290,80 +312,83 @@
         <div class="back back3"></div>
       </section>  
     </header>
-    <div class="input"><button id="lister_les_prof" >Lister les professeurs existants</button>
+<!--    <div class="input"><button id="lister_les_prof" >Lister les professeurs existants</button> -->
+    <div class="input"><button id="lister_les_prof" >Ajouter un professeur</button></div>
     <form class="form" action="<?php echo base_url('ProfController/insert') ?>" method="post"  onSubmit="return confirmer();">
-<!-- Lister -->
-    <div class="containerInput" id="list" style="display:none;">
-        <table class="table">
-          <thead>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Grade</th>
-            <th>Courriel</th>
-          </thead>
-          <?php foreach($profs as $p){?>
-            <tr>
-              <td><?=$p["nomProf"]?></td>
-              <td><?=$p["prenomProf"]?></td>              
-              <td><?=$p["idGrade"]?></td>
-              <td><?=$p["mail"]?></td>
-            </tr>          
-          <?php } ?>
-        </table>
-        <?=$pager->links()?>
-    </div>
 <!-- Formulaire -->
-    <div class="containerInput" id="formulaire">
-      <div class="flex"><div class="input">
-        <label for="nom">Nom:</label>
-        <input type="text" name="nom" id="nom" required/>
-      </div>
-      <div class="input">
-        <label for="prenom">Prenom:</label>
-        <input type="text" name="prenom" id="prenom" required/>
-      </div>
-      <div>
-      </div></div>
-      <div class="flex">
-        <div class="input">        
-          <label for="CIN">CIN:</label>
-          <input type="text" name="CIN" id="CIN" required/>          
+      <div class="containerInput" id="formulaire" style="display:none;">
+        <div class="flex"><div class="input">
+          <label for="nom">Nom:</label>
+          <input type="text" name="nom" id="nom" required/>
         </div>
         <div class="input">
-          <label for="adresse">Adresse</label>            
-          <input type="text" name="adresse" id="adresse" required/>
+          <label for="prenom">Prenom:</label>
+          <input type="text" name="prenom" id="prenom" required/>
+        </div>
+        <div>
+        </div></div>
+        <div class="flex">
+          <div class="input">        
+            <label for="CIN">CIN:</label>
+            <input type="text"pattern="[0-9]{12}" name="CIN" id="CIN" required/>          
+          </div>
+          <div class="input">
+            <label for="adresse">Adresse</label>            
+            <input type="text" name="adresse" id="adresse" required/>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="input">        
+            <label for="grade">Grade:</label>
+            <select name="grade">
+              <?php
+                  foreach ($grades as $grade){
+                      echo "<option value='".$grade['id']."' >".$grade['nomGrade']." </option>";
+                  }
+              ?>           
+          </select>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="vacataire" value="false" id="vacataire" />
+            <label for="Vacataire">Permanant</label>
+          </div>
+        </div>
+        <div class="input" id ="matricule" style="display:none;">
+              <label for="matricule">Matricule:</label>
+              <input type="text" name="matricule" id="input_matricule"/>
+          </div>
+          <div class="flex"><div class="input">
+          <label for="tel">Tel:</label>
+          <input type="text" pattern="(032|033|034|038|020|037) [0-9]{2} [0-9]{3} [0-9]{2}" name="tel" id="tel" placeholder="03x xx xxx xx " />
+        </div>
+        <div class="input">
+          <label for="mail">Mail:</label>
+          <input type="email" name="mail" id="mail" />
+        </div>
         </div>
       </div>
-      <div class="flex">
-        <div class="input">        
-          <label for="grade">Grade:</label>
-          <select name="grade">
-            <?php
-                foreach ($grades as $grade){
-                    echo "<option value='".$grade['id']."' >".$grade['nomGrade']." </option>";
-                }
-            ?>           
-        </select>
-        </div>
-        <div class="checkbox">
-          <input type="checkbox" name="vacataire" value="false" id="vacataire" />
-          <label for="Vacataire">Permanant</label>
-        </div>
+
+<!-- Lister -->
+      <div class="containerInput" id="list" style="display:block;">
+          <table class="table">
+            <thead>
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Grade</th>
+              <th>Courriel</th>
+            </thead>
+            <?php foreach($profs as $p){?>
+              <tr>
+                <td><?=$p["nomProf"]?></td>
+                <td><?=$p["prenomProf"]?></td>              
+                <td><?=$p["nomGrade"]?></td>
+                <td><?=$p["mail"]?></td>
+              </tr>          
+            <?php } ?>
+          </table>
+          <?=$pager->links()?>
       </div>
-       <div class="input" id ="matricule" style="display:none;">
-            <label for="matricule">Matricule:</label>
-            <input type="text" name="matricule" id="input_matricule"/>
-        </div>
-        <div class="flex"><div class="input">
-        <label for="tel">Tel:</label>
-        <input type="text" name="tel" id="tel" />
-      </div>
-      <div class="input">
-        <label for="mail">Mail:</label>
-        <input type="email" name="mail" id="mail" />
-      </div>
-      </div></div>
-      <div class="input"><input type="submit" value="Enregistrez" /></div></div>
+      <div class="input"><input type="submit" value="Enregistrez" /></div>
     </form>
 
     <script src="index.js"></script>
@@ -379,16 +404,19 @@
 
     const choix1 = document.getElementById("lister_les_prof");
     choix1.addEventListener("click", ()=>{
+
         if(choix1.innerHTML!="Ajouter un professeur"){
+          document.getElementById("formulaire").style.display="none";
           document.getElementById("list").style.display="block";
           choix1.innerHTML="Ajouter un professeur";
         }
         else{
+		console.log("Test");
+          document.getElementById("formulaire").style.display="block";
           document.getElementById("list").style.display="none";
           choix1.innerHTML="Lister les professeurs existants";
         }
     });
-
 </script>
 
 </html>
